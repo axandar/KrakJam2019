@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b78cc56-45eb-4eb6-b1c8-759ef8d389fb" name="Default Changelist" comment="" />
+    <list default="true" id="c971bd76-1d59-477d-9ef4-0ddfa9c51f2b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,63 +9,46 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="1243243753">
+    <session id="-1639560110">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.64" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="920" />
+          <entry key="cs" value="1358" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="920" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="cs" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="C#" value="2" />
+          <entry key="C#" value="1358" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/GameController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-              <folding>
-                <marker date="1548440953792" expanded="true" signature="6:123" ph="..." />
-                <marker date="1548440953792" expanded="true" signature="169:306" ph="{...}" />
-                <marker date="1548440953792" expanded="true" signature="248:304" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/RocketShooter.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/PlayerControler.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state relative-caret-position="629">
+              <caret line="39" column="79" selection-start-line="39" selection-start-column="79" selection-end-line="39" selection-end-column="79" />
               <folding>
-                <marker date="1548443533127" expanded="false" signature="6:78" ph="..." />
-                <marker date="1548443533127" expanded="true" signature="123:1120" ph="{...}" />
-                <marker date="1548443533127" expanded="true" signature="403:436" ph="{...}" />
-                <marker date="1548443533127" expanded="true" signature="467:1048" ph="{...}" />
-                <marker date="1548443533127" expanded="true" signature="499:1041" ph="{...}" />
-                <marker date="1548443533127" expanded="true" signature="1077:1118" ph="{...}" />
+                <marker date="1548445075422" expanded="false" signature="6:78" ph="..." />
+                <marker date="1548445075422" expanded="true" signature="124:1576" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="392:450" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="476:590" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="619:1121" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="662:709" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="752:908" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="796:890" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="944:998" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="1035:1091" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="1154:1357" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="1399:1482" ph="{...}" />
+                <marker date="1548445075422" expanded="true" signature="1533:1573" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -73,23 +56,13 @@
       </file>
     </leaf>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Code/RocketShooter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/GameController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/FollowUV.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/ScrollUV.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PlayerControler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Code/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/ScrollUV.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/FollowUV.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/GameController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Code/RocketShooter.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayerControler.cs" />
       </list>
     </option>
   </component>
@@ -99,25 +72,24 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="125" />
-    <option name="width" value="1440" />
-    <option name="height" value="765" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1909" />
+    <option name="y" value="-847" />
+    <option name="width" value="1215" />
+    <option name="height" value="948" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
-      </pane>
       <pane id="UnityExplorer">
         <option name="show-hidden-items" value="false" />
       </pane>
       <pane id="FileSystemExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,17 +130,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5b78cc56-45eb-4eb6-b1c8-759ef8d389fb" name="Default Changelist" comment="" />
-      <created>1548434037204</created>
+      <changelist id="c971bd76-1d59-477d-9ef4-0ddfa9c51f2b" name="Default Changelist" comment="" />
+      <created>1548434155896</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1548434037204</updated>
-      <workItem from="1548434060065" duration="673000" />
+      <updated>1548434155896</updated>
+      <workItem from="1548434164961" duration="610000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6464000" />
+    <option name="totallyTimeSpent" value="7882000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -180,11 +152,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="1912" y="-859" width="1216" height="1896" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2984429" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="NuGet" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
@@ -228,57 +200,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Code/GameManager.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Code/FollowUV.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <marker date="1548438716843" expanded="false" signature="6:44" ph="..." />
-            <marker date="1548438716843" expanded="true" signature="84:500" ph="{...}" />
-            <marker date="1548438716843" expanded="true" signature="133:498" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Code/ScrollUV.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding>
-            <marker date="1548438706184" expanded="false" signature="6:44" ph="..." />
-            <marker date="1548438706184" expanded="true" signature="84:363" ph="{...}" />
-            <marker date="1548438706184" expanded="true" signature="103:361" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Code/GameController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding>
-            <marker date="1548440953792" expanded="true" signature="6:123" ph="..." />
-            <marker date="1548440953792" expanded="true" signature="169:306" ph="{...}" />
-            <marker date="1548440953792" expanded="true" signature="248:304" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Code/RocketShooter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <marker date="1548443533127" expanded="false" signature="6:78" ph="..." />
-            <marker date="1548443533127" expanded="true" signature="123:1120" ph="{...}" />
-            <marker date="1548443533127" expanded="true" signature="403:436" ph="{...}" />
-            <marker date="1548443533127" expanded="true" signature="467:1048" ph="{...}" />
-            <marker date="1548443533127" expanded="true" signature="499:1041" ph="{...}" />
-            <marker date="1548443533127" expanded="true" signature="1077:1118" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/NewBehaviourScript.cs" />
   </component>
 </project>
