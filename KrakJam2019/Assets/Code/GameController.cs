@@ -10,8 +10,10 @@ public class GameController : MonoBehaviour {
 
     [SerializeField] Text scoreText;
     [SerializeField] Text healthText;
+    [SerializeField] Text criticalHealthText;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject gameOverUI;
+    [SerializeField] GameObject criticalHealthUI;
     
     int scoreValue;
     [SerializeField] int healthValue;
@@ -19,6 +21,7 @@ public class GameController : MonoBehaviour {
     void Start() {
         gameUI.SetActive(true);
         gameOverUI.SetActive(false);
+        criticalHealthUI.SetActive(false);
     }
     
     void Update() {
@@ -39,8 +42,22 @@ public class GameController : MonoBehaviour {
             healthText.color = Color.green;
         if (healthValue <= 50 && healthValue > 30)
             healthText.color = Color.yellow;
-        if(healthValue <= 30)
+        if (healthValue <= 30) {
             healthText.color = Color.red;
+            criticalHealthText.color = Color.red;
+            StartCoroutine(FlashCriticalHealthUI());
+        } else StopCoroutine(FlashCriticalHealthUI());
+    }
+
+    IEnumerator FlashCriticalHealthUI() {
+        while (true) {
+            criticalHealthUI.SetActive(true);
+            criticalHealthText.text = " ";
+            yield return new WaitForSeconds(.7f);
+            criticalHealthText.text = "Health critical!";
+            yield return new WaitForSeconds(.7f);
+            criticalHealthUI.SetActive(false);
+        }
     }
 
     void GameOver() {
