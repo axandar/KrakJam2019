@@ -25,8 +25,22 @@ public class GameController : MonoBehaviour {
         scoreText.text = "Score: " + scoreValue;
         healthText.text = "Health: " + healthValue;
 
+        if (Input.GetKey(KeyCode.K))
+            healthValue = healthValue - 10;
+        
         if (healthValue <= 0)
             GameOver();
+
+        HealthIndicator();
+    }
+
+    void HealthIndicator() {
+        if (healthValue > 50)
+            healthText.color = Color.green;
+        if (healthValue <= 50 && healthValue > 30)
+            healthText.color = Color.yellow;
+        if(healthValue <= 30)
+            healthText.color = Color.red;
     }
 
     void GameOver() {
