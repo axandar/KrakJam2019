@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
     
     int scoreValue;
     [SerializeField] int healthValue;
+    bool isPies;
 
     void Start() {
         gameUI.SetActive(true);
@@ -46,7 +47,7 @@ public class GameController : MonoBehaviour {
             healthText.color = Color.red;
             criticalHealthText.color = Color.red;
             StartCoroutine(FlashCriticalHealthUI());
-        } else StopCoroutine(FlashCriticalHealthUI());
+        }
     }
 
     IEnumerator FlashCriticalHealthUI() {
@@ -61,9 +62,10 @@ public class GameController : MonoBehaviour {
     }
 
     void GameOver() {
+        Destroy(criticalHealthUI);
         gameUI.SetActive(false);
         gameOverUI.SetActive(true);
         if (Input.GetKeyDown(KeyCode.R))  
-            SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex ) ;
+            SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
     }
 }

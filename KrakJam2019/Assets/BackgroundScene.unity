@@ -929,10 +929,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 671550400}
   healthText: {fileID: 1018794101}
-  criticalHealthText: {fileID: 0}
+  criticalHealthText: {fileID: 1195756495}
   gameUI: {fileID: 28897685}
   gameOverUI: {fileID: 1734149478}
-  criticalHealthUI: {fileID: 0}
+  criticalHealthUI: {fileID: 482707478}
   healthValue: 100
 --- !u!114 &1297352401
 MonoBehaviour:
