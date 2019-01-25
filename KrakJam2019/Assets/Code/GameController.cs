@@ -13,23 +13,29 @@ public class GameController : MonoBehaviour {
 //    [SerializeField] Text healthText;
 //    [SerializeField] GameObject gameUI;
 //    [SerializeField] GameObject gameOverUI;
-    
+    public static float PlayerDMG;
     
     [SerializeField] GameObject _player;
-    
     [SerializeField] GameObject _bonusPrefab;
     [SerializeField] private float _timeToSpawn = 15;
 
     private int StopFirstCorutineInduction = 1;
-    
+    private GameObject bonus;
+    private bool _dontAsk;
+
     [Header("Map Sizes")] 
     [SerializeField] private float _minVectorXValue;
     [SerializeField] private float _maxVectorXValue;
     [SerializeField] private float _minVectorYValue;
     [SerializeField] private float _maxVectorYValue;
-
     
-    int scoreValue;
+    [Header("Bonus Values")]
+    [SerializeField] private int _healingValues = 10;
+    [SerializeField] private float _addSpeed = 0.1f;
+    [SerializeField] private float _addDMG = 1;
+
+
+     int scoreValue;
      [SerializeField] int healthValue;
 
     private void Awake()
@@ -48,6 +54,8 @@ public class GameController : MonoBehaviour {
 
         if (healthValue <= 0)
             GameOver();
+
+        PickUpBonus();
     }
 
     void GameOver() {
@@ -60,17 +68,20 @@ public class GameController : MonoBehaviour {
     private IEnumerator SpawnBonus()
     {
         while (true) {
+            _dontAsk = true;
             StopFirstCorutineInduction -= 1;
             
             if (StopFirstCorutineInduction <= 0) {
                 
-                var bonus =  Instantiate(_bonusPrefab, 
+                bonus =  Instantiate(_bonusPrefab, 
                     new Vector3(Random.Range(_minVectorXValue,_maxVectorXValue),
                         Random.Range(_minVectorYValue,_maxVectorYValue))
                     , new Quaternion(0,0,0,0));
                 yield return new WaitForSeconds(_timeToSpawn);
-                if(bonus != null)
-                   Destroy(bonus);
+                if (bonus != null) {
+                    _dontAsk = false;
+                    Destroy(bonus);
+                }
                 yield return new  WaitForSeconds(_timeToSpawn);
             }
         }
@@ -78,23 +89,30 @@ public class GameController : MonoBehaviour {
 
     private void PickUpBonus()
     {
-        if(_player.transform == )
+        if(!_dontAsk)
+            return;
+        
+            if(Vector2.Distance(_player.transform.position, bonus.transform.position) <= 1){
+            PickUp();
+            Destroy(bonus);
+            _dontAsk = false;
+        }
     }
     
     private void PickUp()
     {
         var pickUpId = Random.Range(0,2);
-
+        Debug.Log(pickUpId);
         switch (pickUpId) {
                 case 0: //Health
-                    
+                    healthValue += _healingValues;
                     break;
-                case 1: //Speed
-                    
+                case 1: //Speed 0.1
+                    PlayerController.acceleration += _addSpeed;
                     break;
                 
-                case 2: //DMG
-                    
+                case 2: //DMG 0.1
+                    PlayerDMG += _addDMG;
                     break;
         }
     }

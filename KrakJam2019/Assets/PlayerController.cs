@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
    [SerializeField] private float _maxVelocity = 3;
    [SerializeField] private float _rotationSpeed = 2;
 
+   public static float acceleration  = 1;
+
    private void Start()
    {
       _rb = GetComponent<Rigidbody2D>();
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
    {
    
       if(Input.GetKey(KeyCode.W)){        
-         MoveForvard(_xAxis);
+         MoveForvard(_xAxis * acceleration);
       }
       
       if(!Input.GetKey(KeyCode.W)) {
