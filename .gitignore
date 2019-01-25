@@ -24,6 +24,8 @@ ExportedObj/
 *.pdb
 *.opendb
 *.idea
+**/.idea/workspace.xml
+**/.idea/tasks.xml
 
 
 # Unity3D generated meta files
@@ -36,4 +38,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-*.idea
