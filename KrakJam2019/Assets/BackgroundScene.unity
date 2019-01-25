@@ -634,7 +634,7 @@ MonoBehaviour:
   rocket: {fileID: 7374937253802298602, guid: 4c75c443244f4b84bb0d8ee0b107d55f, type: 3}
   rocketVelocity: 700
   rocketTimer: 5
-  shootingSpeed: 0.2
+  shootingDelay: 0.2
 --- !u!1 &1697919433
 GameObject:
   m_ObjectHideFlags: 0

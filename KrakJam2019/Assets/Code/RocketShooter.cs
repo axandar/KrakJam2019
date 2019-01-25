@@ -8,7 +8,7 @@ public class RocketShooter : MonoBehaviour {
      [SerializeField] GameObject rocket;
      [SerializeField] float rocketVelocity;
      [SerializeField] float rocketTimer;
-     [SerializeField] float shootingSpeed;
+     [SerializeField] float shootingDelay;
 
      bool enableShooting = true;
      
@@ -18,16 +18,15 @@ public class RocketShooter : MonoBehaviour {
      
      void ShootRocket() {
           if (enableShooting) {
-               if (Input.GetMouseButton(0)) {
-                    enableShooting = false;
-                    var temporaryRocket = Instantiate(rocket, rocketLauncher.transform.position,
-                         rocketLauncher.transform.rotation) as GameObject;
+               if (!Input.GetMouseButton(0)) return;
+               enableShooting = false;
+               var temporaryRocket = Instantiate(rocket, rocketLauncher.transform.position,
+                    rocketLauncher.transform.rotation) as GameObject;
 
-                    var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody>();
-                    temporaryRigidbody.AddForce(transform.up * rocketVelocity);
-                    Invoke(nameof(EnableShooting), shootingSpeed);
-                    Destroy(temporaryRocket, rocketTimer);
-               }
+               var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody>();
+               temporaryRigidbody.AddForce(transform.up * rocketVelocity);
+               Invoke(nameof(EnableShooting), shootingDelay);
+               Destroy(temporaryRocket, rocketTimer);
           }
      }
 
