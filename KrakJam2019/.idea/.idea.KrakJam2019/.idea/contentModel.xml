@@ -9,6 +9,7 @@
         <e p="Code" t="Include">
           <e p="FollowUV.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
+          <e p="RocketShooter.cs" t="Include" />
           <e p="ScrollUV.cs" t="Include" />
           <e p="SpaceshipController.cs" t="Include" />
         </e>
