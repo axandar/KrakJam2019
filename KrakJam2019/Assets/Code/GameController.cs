@@ -11,7 +11,5 @@ public class GameController : MonoBehaviour {
 
     void Update() {
         scoreText.text = "Score: " + scoreValue;
-        if (Input.GetKey(KeyCode.Z))
-            scoreValue++;
     }
 }
