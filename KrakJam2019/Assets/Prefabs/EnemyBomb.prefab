@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5512338466876800231}
   m_Layer: 8
   m_Name: EnemyBomb
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,4 +110,10 @@ MonoBehaviour:
   nextStep: {x: 0, y: 0, z: 0}
   speed: 5
   isBomb: 1
+  scoreValue: 0
+  addScore:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Code.Enemy.EnemyAI+AddScoreEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   health: 1
