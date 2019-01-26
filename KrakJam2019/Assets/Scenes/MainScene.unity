@@ -1167,7 +1167,8 @@ PrefabInstance:
         type: 3}
       propertyPath: playerTransform
       value: 
-      objectReference: {fileID: 2042116684}
+      objectReference: {fileID: 7031603746388068645, guid: 9ae46584aa6b35346844212648739780,
+        type: 3}
     - target: {fileID: 817434391433144180, guid: f5b9cb71142178149bbf80d793282c47,
         type: 3}
       propertyPath: enemyBombPrefab

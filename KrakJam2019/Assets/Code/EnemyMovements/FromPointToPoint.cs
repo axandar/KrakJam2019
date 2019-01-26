@@ -21,6 +21,7 @@ namespace Code.EnemyMovements{
 				var vec3 = Vector3.MoveTowards(start, target, step);
 				start = vec3;
 				_route.Enqueue(vec3);
+				Debug.Log(vec3);
 			}
 		}
 
