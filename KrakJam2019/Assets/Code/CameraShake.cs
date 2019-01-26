@@ -4,11 +4,9 @@ using System.Collections;
 public class CameraShake : MonoBehaviour {
     public Transform camTransform;
 	
-    public float shakeDuration = 0f;
 	
     public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
-	
+    private Coroutine _shakeCoroutine;
     Vector3 originalPos;
 	
     void Awake() {
@@ -16,20 +14,29 @@ public class CameraShake : MonoBehaviour {
         {
             camTransform = GetComponent(typeof(Transform)) as Transform;
         }
+
+        Events.TakeResourcesAfterConstract += StartShake;
     }
 	
     void OnEnable() {
         originalPos = camTransform.localPosition;
     }
 
-    void Update() {
-        if (shakeDuration > 0) {
+    void StartShake(float shakeDuration)
+    {
+        if(_shakeCoroutine != null)
+             StopCoroutine(_shakeCoroutine);
+        _shakeCoroutine = StartCoroutine(ShakeCor(shakeDuration));
+    }
+
+    IEnumerator ShakeCor ( float shakeDuration)
+    {
+        while (shakeDuration > 0) {
+            Debug.Log("ShakeScreen");
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
-			
-            shakeDuration -= Time.deltaTime * decreaseFactor;
-        } else {
-            shakeDuration = 0f;
-            camTransform.localPosition = originalPos;
-        }
+            shakeDuration -= Time.deltaTime;
+            yield return null;
+        } 
+         camTransform.localPosition = originalPos;
     }
 }
