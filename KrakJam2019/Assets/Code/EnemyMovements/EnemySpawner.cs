@@ -4,31 +4,46 @@ using UnityEngine;
 namespace Code{
 	public class EnemySpawner : MonoBehaviour{
 		[SerializeField] private Camera gameCamera;
-		[SerializeField] private GameObject enemyPrefab;
-		[SerializeField] private RespawnArea[] rangesToSpawn = {
-			new RespawnArea(-0.3f, -0.1f, 0.5f, 1.5f),
-			new RespawnArea(1.1f, 1.3f, 0.5f, 1.5f),
-			new RespawnArea(0f, 1f, 1.1f, 1.3f) 
-		};
+
+		[SerializeField] private GameObject enemyBombPrefab;
+		[SerializeField] private GameObject enemyLineXRightPrefab;
+		[SerializeField] private GameObject enemyLineXLeftPrefab;
+		
+		[SerializeField] private Transform playerTransform;
+		[SerializeField] private Transform wallLeftTransform;
+		[SerializeField] private Transform wallRightTransform;
 
 		private void Start(){
-			SpawnEnemy();
+			SpawnEnemyGoesInLineXRight();
+			SpawnEnemyGoesInLineXLeft();
+			SpawnEnemyBomb();
 		}
 
-		public void SpawnEnemy(){
-			var enemy = Instantiate(enemyPrefab);
+		private void SpawnEnemyGoesInLineXRight(){
+			var enemy = Instantiate(enemyLineXRightPrefab);
 			var enemyAi = enemy.GetComponent<EnemyAI>();
-			enemyAi.target = transform;
-			enemy.transform.position = GenerateVectorForSpawn();
+			enemyAi.target = wallRightTransform;
+			enemy.transform.position = GenerateVectorForSpawn(enemyAi.GetRespawnArea());
 		}
 
-		private Vector3 GenerateVectorForSpawn(){
-			var index = Random.Range(0, rangesToSpawn.Length);
-			var respawnArea = rangesToSpawn[index];
-			
+		private void SpawnEnemyGoesInLineXLeft(){
+			var enemy = Instantiate(enemyLineXLeftPrefab);
+			var enemyAi = enemy.GetComponent<EnemyAI>();
+			enemyAi.target = wallLeftTransform;
+			enemy.transform.position = GenerateVectorForSpawn(enemyAi.GetRespawnArea());
+		}
+
+		private void SpawnEnemyBomb(){
+			var enemy = Instantiate(enemyBombPrefab);
+			var enemyAi = enemy.GetComponent<EnemyAI>();
+			enemyAi.target = playerTransform;
+			enemy.transform.position = GenerateVectorForSpawn(enemyAi.GetRespawnArea());
+		}
+
+		private Vector3 GenerateVectorForSpawn(RespawnArea respawnArea){
 			var x = Random.Range(respawnArea.MinX, respawnArea.MaxX);
 			var y = Random.Range(respawnArea.MinY, respawnArea.MaxY);
-			return gameCamera.ViewportToWorldPoint(new Vector3(x, y, -9));
+			return gameCamera.ViewportToWorldPoint(new Vector3(x, y, 1));
 		}
 	}
 }
