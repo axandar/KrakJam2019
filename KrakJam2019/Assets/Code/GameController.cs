@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
 //    [SerializeField] Text healthText;
 //    [SerializeField] GameObject gameUI;
 //    [SerializeField] GameObject gameOverUI;
-    public static float PlayerDMG;
+    public static float PlayerDMG = 1;
     
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _bonusPrefab;
