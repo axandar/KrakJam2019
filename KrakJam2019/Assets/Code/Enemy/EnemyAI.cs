@@ -40,10 +40,6 @@ namespace Code.Enemy{
 			if(_isMoving){
 				MoveEnemy();
 			}else{
-				if(isBomb){
-					Debug.Log("BOOM");
-				}
-
 				Destroy(gameObject);
 			}
 		}
