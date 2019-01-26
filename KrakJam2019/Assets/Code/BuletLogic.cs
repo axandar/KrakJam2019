@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Code;
+using Code.Enemy;
+using Code.EnemyMovements;
 using UnityEngine;
 
 public class BuletLogic : MonoBehaviour
@@ -15,7 +17,7 @@ public class BuletLogic : MonoBehaviour
         dMG = GameController.PlayerDMG;
         Debug.Log(dMG);
         if (LookForTarget()) {
-            enemyPrefab.Health -= dMG;
+            enemyPrefab.health -= dMG;
         }
     }
     bool LookForTarget()
