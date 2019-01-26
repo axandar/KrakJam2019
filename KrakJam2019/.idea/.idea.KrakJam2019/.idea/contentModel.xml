@@ -10,6 +10,7 @@
           <e p="cameraController.cs" t="Include" />
           <e p="FollowUV.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
+          <e p="MenuBackgroundAnimation.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="RocketShooter.cs" t="Include" />
           <e p="SpaceshipController.cs" t="Include" />
