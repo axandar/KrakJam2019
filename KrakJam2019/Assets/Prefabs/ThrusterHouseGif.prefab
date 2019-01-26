@@ -100,7 +100,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0.93470955, b: 0, a: 1}
-      key1: {r: 0.17849922, g: 1, b: 0, a: 1}
+      key1: {r: 0.17849922, g: 1, b: 0, a: 0.70980394}
       key2: {r: 1, g: 0.43259233, b: 0, a: 1}
       key3: {r: 1, g: 0, b: 0, a: 1}
       key4: {r: 0.54426956, g: 0, b: 1, a: 1}
@@ -235,7 +235,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0.93470955, b: 0, a: 1}
-      key1: {r: 0.17849922, g: 1, b: 0, a: 1}
+      key1: {r: 0.17849922, g: 1, b: 0, a: 0.70980394}
       key2: {r: 1, g: 0.43259233, b: 0, a: 1}
       key3: {r: 1, g: 0, b: 0, a: 1}
       key4: {r: 0.54426956, g: 0, b: 1, a: 1}
@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 7031603746388068640}
   - component: {fileID: 7031603746388068644}
   - component: {fileID: 7031603746388068647}
+  - component: {fileID: 7652451855705078262}
   m_Layer: 0
   m_Name: ThrusterHouseGif
   m_TagString: Untagged
@@ -552,3 +553,29 @@ MonoBehaviour:
   shootingDelay: 0.1
   boomBoomValue: 1
   isShootingDisabled: 0
+--- !u!61 &7652451855705078262
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031603746388068641}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.12115133}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.75769734}
+  m_EdgeRadius: 0
