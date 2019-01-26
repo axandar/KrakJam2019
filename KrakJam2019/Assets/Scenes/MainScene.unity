@@ -1711,6 +1711,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketLauncher: {fileID: 1697919433}
+  rocket01: {fileID: 1394349801221292011, guid: da7914fa74005ad45880a82e134cb2cc,
+    type: 3}
+  rocket02: {fileID: 1628722902339167978, guid: 82c8191e0014be344bdf282219ad13cb,
+    type: 3}
+  rocket03: {fileID: 9150772794876812902, guid: 89865d8c0465b644194361358e717bbe,
+    type: 3}
   rocket: {fileID: 9150772794876812902, guid: 89865d8c0465b644194361358e717bbe, type: 3}
   rocketVelocity: 700
   rocketTimer: 5
