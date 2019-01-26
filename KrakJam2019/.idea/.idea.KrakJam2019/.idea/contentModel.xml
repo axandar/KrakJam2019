@@ -17,6 +17,7 @@
           <e p="RocketShooter.cs" t="Include" />
           <e p="SpaceshipController.cs" t="Include" />
         </e>
+        <e p="StartGameTextChanger.cs" t="Include" />
       </e>
       <e p="KrakJam2019.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
