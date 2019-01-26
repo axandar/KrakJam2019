@@ -16,8 +16,7 @@ namespace Code{
 			this.minY = minY;
 		}
 
-		
-		
+
 		public float MinX{
 			get => minX;
 			set => minX = value;

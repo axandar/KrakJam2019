@@ -9,7 +9,7 @@ namespace Code.EnemyMovements{
 		[SerializeField] private GameObject enemyBombPrefab;
 		[SerializeField] private GameObject enemyLineXRightPrefab;
 		[SerializeField] private GameObject enemyLineXLeftPrefab;
-		
+
 		[SerializeField] private Transform playerTransform;
 		[SerializeField] private Transform wallLeftTransform;
 		[SerializeField] private Transform wallRightTransform;

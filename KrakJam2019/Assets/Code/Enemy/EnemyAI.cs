@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Code.Enemy{
 	// ReSharper disable once InconsistentNaming
@@ -9,6 +10,7 @@ namespace Code.Enemy{
 		[SerializeField] private Vector3 nextStep;
 		[SerializeField] private float speed = 5;
 		[SerializeField] private bool isBomb;
+		[SerializeField] private UnityAction<int> addScore;
 		public float health = 5;
 
 		private bool _isMoving = true;
@@ -16,9 +18,9 @@ namespace Code.Enemy{
 		private void Start(){
 			var movementInstance = Instantiate(enemyMovement);
 			enemyMovement = movementInstance;
-			
+
 			var temp = target.position;
-			enemyMovement.GenerateRoute(transform.position, 
+			enemyMovement.GenerateRoute(transform.position,
 				new Vector3(temp.x, temp.y, temp.z));
 			nextStep = enemyMovement.GetNextVector();
 		}
@@ -36,10 +38,11 @@ namespace Code.Enemy{
 		private void FixedUpdate(){
 			if(_isMoving){
 				MoveEnemy();
-			}else{
+			} else{
 				if(isBomb){
 					Debug.Log("BOOM");
 				}
+
 				Destroy(gameObject);
 			}
 		}
@@ -48,13 +51,12 @@ namespace Code.Enemy{
 			if(IsInNextStep()){
 				if(enemyMovement.IsNextVector()){
 					nextStep = enemyMovement.GetNextVector();
-				}else{
+				} else{
 					_isMoving = false;
 				}
 			}
 
 			var step = speed * Time.deltaTime;
-			//Debug.Log(nextStep);
 			transform.position = Vector3.MoveTowards(transform.position, nextStep, step);
 		}
 
@@ -66,7 +68,7 @@ namespace Code.Enemy{
 		public RespawnArea GetRespawnArea(){
 			return enemyMovement.GetRespawnArea();
 		}
-		
+
 		[ContextMenu("Kill")]
 		private void Kill(){
 			health -= health;

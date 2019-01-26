@@ -13,12 +13,12 @@ namespace Code.EnemyMovements{
 		[SerializeField] private List<RespawnArea> rangesToSpawn = new List<RespawnArea>();
 
 		private readonly Queue<Vector3> _route = new Queue<Vector3>();
-		
+
 		public override void GenerateRoute(Vector3 start, Vector3 target){
 			var distance = Vector3.Distance(start, target);
 			target = RecalculateTarget(start, target);
-			
-			var step = distance / (int)(predictionTimeMillis / predictionStepMillis);
+
+			var step = distance / (int) (predictionTimeMillis / predictionStepMillis);
 			for(var i = predictionStepMillis; i <= predictionTimeMillis; i += predictionStepMillis){
 				var vec3 = Vector3.MoveTowards(start, target, step);
 				start = vec3;
@@ -31,10 +31,12 @@ namespace Code.EnemyMovements{
 				target.y = start.y;
 				target.z = start.z;
 			}
+
 			if(Math.Abs(direction.y) > 0.001){
 				target.x = start.x;
 				target.z = start.z;
 			}
+
 			if(Math.Abs(direction.z) > 0.001){
 				target.y = start.y;
 				target.x = start.x;
