@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
    [SerializeField] float timeToStop = 0.01f;
    [SerializeField] float _maxVelocity = 3;
    [SerializeField] float _rotationSpeed = 2;
-
    void Start()
    {
       _rb = GetComponent<Rigidbody2D>();
@@ -21,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
    void Update()
    {
+      
       _xAxis = Input.GetAxis("Vertical");
       _yAxis = Input.GetAxis("Horizontal");
       GetInput();

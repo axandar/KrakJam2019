@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour {
     }
     
     void Update() {
-        _player.transform.position = cameraGO.transform.position;
         scoreText.text = "Score: " + scoreValue;
         healthText.text = "Health: " + healthValue;
 

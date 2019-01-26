@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="cameraController.cs" t="Include" />
         <e p="Code" t="Include">
+          <e p="cameraController.cs" t="Include" />
           <e p="FollowUV.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
