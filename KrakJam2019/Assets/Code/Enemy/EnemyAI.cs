@@ -8,6 +8,13 @@ namespace Code.Enemy {
 		public Transform target;
 
 		[SerializeField] EnemyMovement enemyMovement;
+		
+		
+		
+		[SerializeField] private GameController _controller;
+		
+		
+		
 		[SerializeField] Vector3 nextStep;
 		[SerializeField] float speed = 5;
 		[SerializeField] bool isBomb;
@@ -92,16 +99,14 @@ namespace Code.Enemy {
 		private void Kill(){
 			health -= health;
 		}
+
+		private void OnCollisionEnter2D(Collision2D other){
+			_controller.HealthPoints -= 10;
+			Destroy(gameObject);
+		}
 		
 		[Serializable]
 		public class AddScoreEvent : UnityEvent<int> {
-		}
-
-
-		private void OnCollisionEnter2D(Collision2D other)
-		{
-			var player = other.gameObject.CompareTag("Player");
-			Destroy(gameObject);
 		}
 	}
 }

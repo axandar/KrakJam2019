@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,6 @@ namespace Code{
 		[SerializeField] GameObject gameUI;
 		[SerializeField] GameObject gameOverUI;
 		[SerializeField] GameObject criticalHealthUI;
-		[SerializeField] GameObject cameraGO;
 		public static float PlayerDMG = 1;
 
 		[SerializeField] GameObject _player;
@@ -21,22 +21,27 @@ namespace Code{
 		int StopFirstCorutineInduction = 1;
 		GameObject bonus;
 		bool _dontAsk;
-
 		[Header("Map Sizes")] [SerializeField] float _minVectorXValue;
 		[SerializeField] float _maxVectorXValue;
 		[SerializeField] float _minVectorYValue;
 		[SerializeField] float _maxVectorYValue;
-
 		[Header("Bonus Values")] [SerializeField]
 		int _healingValues = 10;
 
 		[SerializeField] float _addSpeed = 0.1f;
 		[SerializeField] float _addDMG = 1;
-
-
-		int scoreValue;
-		[SerializeField] int healthValue;
 		bool isPies;
+		private int scoreValue;
+		
+		[SerializeField] private int _healthPoints = 100;
+		public int HealthPoints {
+			get { return _healthPoints; }
+			set{
+				_healthPoints = value;
+				Debug.Log(_healthPoints);
+			}
+		}
+
 
 		void Awake(){
 			StartCoroutine(SpawnBonus());
@@ -50,10 +55,10 @@ namespace Code{
 
 		void Update() {
 			scoreText.text = "Score: " + scoreValue;
-			healthText.text = "Health: " + healthValue;
+			healthText.text = "Health: " + HealthPoints;
 
 
-			if (healthValue <= 0)
+			if (HealthPoints <= 0)
 				GameOver();
 
 			HealthIndicator();
@@ -62,11 +67,11 @@ namespace Code{
 		}
 
 		void HealthIndicator(){
-			if(healthValue > 50)
+			if(HealthPoints > 50)
 				healthText.color = Color.green;
-			if(healthValue <= 50 && healthValue > 30)
+			if(HealthPoints <= 50 && HealthPoints > 30)
 				healthText.color = Color.yellow;
-			if(healthValue <= 30){
+			if(HealthPoints <= 30){
 				healthText.color = Color.red;
 				criticalHealthText.color = Color.red;
 				StartCoroutine(FlashCriticalHealthUI());
@@ -132,7 +137,7 @@ namespace Code{
 			Debug.Log(pickUpId);
 			switch (pickUpId) {
 				case 0: //Health
-					healthValue += _healingValues;
+					_healingValues += _healingValues;
 					break;
 				case 1: //Speed 0.1
 					PlayerController.acceleration += _addSpeed;
