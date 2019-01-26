@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc68f385150e0540b491f8a6d35258d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 7031603746388068645, guid: 9ae46584aa6b35346844212648739780, type: 3}
   enemyMovement: {fileID: 87932044390627007, guid: 8bc842fed2ddcea438052c290a1ef36c,
     type: 3}
   nextStep: {x: 0, y: 0, z: 0}
@@ -134,6 +134,3 @@ MonoBehaviour:
     m_TypeName: Code.Enemy.EnemyAI+AddScoreEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   health: 1
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 512
