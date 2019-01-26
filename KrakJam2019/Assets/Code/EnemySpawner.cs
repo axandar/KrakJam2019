@@ -24,7 +24,6 @@ namespace Code{
 			var enemyAi = enemy.GetComponent<EnemyAI>();
 			enemyAi.target = wallRightTransform;
 			enemy.transform.position = GenerateVectorForSpawn(enemyAi.GetRespawnArea());
-			Debug.Log(enemy.transform.position);
 		}
 
 		private void SpawnEnemyGoesInLineXLeft(){
