@@ -111,14 +111,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7031603746388068645, guid: 9ae46584aa6b35346844212648739780, type: 3}
-  enemyMovement: {fileID: 2827563295208027875, guid: d0f64bc06fea2a64e87933725ab1cee5,
-    type: 3}
   _controller: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  enemyMovement: {fileID: 2827563295208027875, guid: d0f64bc06fea2a64e87933725ab1cee5,
     type: 3}
   nextStep: {x: 0, y: 0, z: 0}
   speed: 5
   isBomb: 1
   scoreValue: 10
+  explosion: {fileID: 2671096535051578992, guid: ecc4c160924751844bcc03b1fe82e2d0,
+    type: 3}
   addScore:
     m_PersistentCalls:
       m_Calls:

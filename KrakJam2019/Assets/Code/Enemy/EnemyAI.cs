@@ -32,9 +32,8 @@ namespace Code.Enemy{
 		private void Update(){
 			if(_currentHealth <= 0){
 				addScore.Invoke(scoreValue);
-				if(_currentHealth <= 0){
-					Destroy(gameObject);
-				}
+				Destroy(gameObject);
+
 			}
 		}
 
@@ -45,7 +44,7 @@ namespace Code.Enemy{
 				if(isBomb){
 					Debug.Log("BOOM");
 				}
-				Instantiate(explosion);
+				Debug.Log(gameObject.name);
 				Destroy(gameObject);
 			}
 		}
@@ -69,6 +68,7 @@ namespace Code.Enemy{
 		}
 
 		public void DamageMeBoi(int boomBoomValue){
+			Debug.Log("Damage taken");
 			_currentHealth -= boomBoomValue;
 		}
 
@@ -85,6 +85,11 @@ namespace Code.Enemy{
 		private void OnCollisionEnter2D(Collision2D other){
 			_controller.HealthPoints -= 10;
 			Destroy(gameObject);
+		}
+
+		private void OnDisable()
+		{
+			Instantiate(explosion,gameObject.transform.position,Quaternion.identity);
 		}
 
 		[Serializable]
