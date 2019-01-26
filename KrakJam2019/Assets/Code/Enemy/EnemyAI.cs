@@ -40,6 +40,7 @@ namespace Code.Enemy {
 					Destroy(gameObject);
 				}
 			}
+			
 		}
 
 		void FixedUpdate(){
