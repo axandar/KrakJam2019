@@ -783,6 +783,11 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1445622481443780533, guid: 6260622ae495be24381c428002b3b73f,
+        type: 3}
+      propertyPath: _maxVelocity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1445622481033941576, guid: 6260622ae495be24381c428002b3b73f,
         type: 3}
       propertyPath: m_LocalPosition.y
