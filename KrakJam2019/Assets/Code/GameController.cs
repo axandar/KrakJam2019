@@ -16,29 +16,29 @@ namespace Code{
 
 		[SerializeField] GameObject _player;
 		[SerializeField] GameObject _bonusPrefab;
-		[SerializeField] private float _timeToSpawn = 15;
+		[SerializeField] float _timeToSpawn = 15;
 
-		private int StopFirstCorutineInduction = 1;
-		private GameObject bonus;
-		private bool _dontAsk;
+		int StopFirstCorutineInduction = 1;
+		GameObject bonus;
+		bool _dontAsk;
 
-		[Header("Map Sizes")] [SerializeField] private float _minVectorXValue;
-		[SerializeField] private float _maxVectorXValue;
-		[SerializeField] private float _minVectorYValue;
-		[SerializeField] private float _maxVectorYValue;
+		[Header("Map Sizes")] [SerializeField] float _minVectorXValue;
+		[SerializeField] float _maxVectorXValue;
+		[SerializeField] float _minVectorYValue;
+		[SerializeField] float _maxVectorYValue;
 
 		[Header("Bonus Values")] [SerializeField]
-		private int _healingValues = 10;
+		int _healingValues = 10;
 
-		[SerializeField] private float _addSpeed = 0.1f;
-		[SerializeField] private float _addDMG = 1;
+		[SerializeField] float _addSpeed = 0.1f;
+		[SerializeField] float _addDMG = 1;
 
 
 		int scoreValue;
 		[SerializeField] int healthValue;
 		bool isPies;
 
-		private void Awake(){
+		void Awake(){
 			StartCoroutine(SpawnBonus());
 		}
 
@@ -48,18 +48,18 @@ namespace Code{
 			criticalHealthUI.SetActive(false);
 		}
 
-		void Update(){
+		void Update() {
 			scoreText.text = "Score: " + scoreValue;
 			healthText.text = "Health: " + healthValue;
-
-			if(Input.GetKey(KeyCode.K))
+        
+			if (Input.GetKey(KeyCode.K))
 				healthValue = healthValue - 10;
 
-			if(healthValue <= 0)
+			if (healthValue <= 0)
 				GameOver();
 
 			HealthIndicator();
-
+        
 			PickUpBonus();
 		}
 
@@ -94,31 +94,33 @@ namespace Code{
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
 
-		private IEnumerator SpawnBonus(){
-			while(true){
+		IEnumerator SpawnBonus()
+		{
+			while (true) {
 				_dontAsk = true;
 				StopFirstCorutineInduction -= 1;
-
-				if(StopFirstCorutineInduction <= 0){
-					bonus = Instantiate(_bonusPrefab,
-						new Vector3(Random.Range(_minVectorXValue, _maxVectorXValue),
-							Random.Range(_minVectorYValue, _maxVectorYValue))
-						, new Quaternion(0, 0, 0, 0));
+            
+				if (StopFirstCorutineInduction <= 0) {
+                
+					bonus =  Instantiate(_bonusPrefab, 
+						new Vector3(Random.Range(_minVectorXValue,_maxVectorXValue),
+							Random.Range(_minVectorYValue,_maxVectorYValue))
+						, new Quaternion(0,0,0,0));
 					yield return new WaitForSeconds(_timeToSpawn);
-					if(bonus != null){
+					if (bonus != null) {
 						_dontAsk = false;
 						Destroy(bonus);
 					}
-
-					yield return new WaitForSeconds(_timeToSpawn);
+					yield return new  WaitForSeconds(_timeToSpawn);
 				}
 			}
 		}
 
-		private void PickUpBonus(){
+		void PickUpBonus()
+		{
 			if(!_dontAsk)
 				return;
-
+        
 			if(Vector2.Distance(_player.transform.position, bonus.transform.position) <= 1){
 				PickUp();
 				Destroy(bonus);
@@ -126,17 +128,18 @@ namespace Code{
 			}
 		}
 
-		private void PickUp(){
-			var pickUpId = Random.Range(0, 2);
+		void PickUp()
+		{
+			var pickUpId = Random.Range(0,2);
 			Debug.Log(pickUpId);
-			switch(pickUpId){
+			switch (pickUpId) {
 				case 0: //Health
 					healthValue += _healingValues;
 					break;
 				case 1: //Speed 0.1
 					PlayerController.acceleration += _addSpeed;
 					break;
-
+                
 				case 2: //DMG 0.1
 					PlayerDMG += _addDMG;
 					break;
@@ -149,3 +152,4 @@ namespace Code{
 		}
 	}
 }
+

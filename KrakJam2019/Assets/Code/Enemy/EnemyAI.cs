@@ -14,10 +14,12 @@ namespace Code.Enemy{
 		[SerializeField] private int scoreValue;
 		public AddScoreEvent addScore;
 		public float health = 5;
+		float currentHealth;
 
-		private bool _isMoving = true;
+		bool _isMoving = true;
 
-		private void Start(){
+		void Start() {
+			currentHealth = health;
 			var movementInstance = Instantiate(enemyMovement);
 			enemyMovement = movementInstance;
 
@@ -27,30 +29,19 @@ namespace Code.Enemy{
 			nextStep = enemyMovement.GetNextVector();
 		}
 
-		private void Update(){
+		void Update(){
 			if(!isBomb){
 				//przeciwnicy odwracaja sie w strone gracza
 			}
 
 			if(health <= 0){
 				addScore.Invoke(scoreValue);
+			if(currentHealth <= 0){
 				Destroy(gameObject);
 			}
 		}
 
-		private void FixedUpdate(){
-			if(_isMoving){
-				MoveEnemy();
-			} else{
-				if(isBomb){
-					Debug.Log("BOOM");
-				}
-
-				Destroy(gameObject);
-			}
-		}
-
-		private void MoveEnemy(){
+		void MoveEnemy(){
 			if(IsInNextStep()){
 				if(enemyMovement.IsNextVector()){
 					nextStep = enemyMovement.GetNextVector();
@@ -63,18 +54,18 @@ namespace Code.Enemy{
 			transform.position = Vector3.MoveTowards(transform.position, nextStep, step);
 		}
 
-		private bool IsInNextStep(){
+		bool IsInNextStep(){
 			var distance = Vector3.Distance(transform.position, nextStep);
 			return distance < 0.01f;
 		}
 
-		public RespawnArea GetRespawnArea(){
+			RespawnArea GetRespawnArea(){
 			return enemyMovement.GetRespawnArea();
 		}
 
-		[ContextMenu("Kill")]
-		private void Kill(){
-			health -= health;
+
+			void DamageMeBoi(int damage) {
+			currentHealth -= damage;
 		}
 	}
 	

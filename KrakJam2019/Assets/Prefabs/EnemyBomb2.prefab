@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1228219401}
   - component: {fileID: 1228219400}
   - component: {fileID: 1228219399}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBomb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,11 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  gameController: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-    type: 3}
   enemyMovement: {fileID: 2827563295208027875, guid: d0f64bc06fea2a64e87933725ab1cee5,
     type: 3}
   nextStep: {x: 0, y: 0, z: 0}
   speed: 5
   isBomb: 1
-  Health: 5
+  health: 1
