@@ -1097,11 +1097,16 @@ MonoBehaviour:
   criticalHealthUI: {fileID: 482707478}
   cameraGO: {fileID: 2021946526}
   _player: {fileID: 1297352394}
+  _bonusPrefab: {fileID: 7374937253802298602, guid: 4c75c443244f4b84bb0d8ee0b107d55f,
+    type: 3}
   _timeToSpawn: 15
   _minVectorXValue: 0
   _maxVectorXValue: 0
   _minVectorYValue: 0
   _maxVectorYValue: 0
+  _healingValues: 10
+  _addSpeed: 0.1
+  _addDMG: 1
   healthValue: 100
 --- !u!114 &1297352401
 MonoBehaviour:
