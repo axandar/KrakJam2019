@@ -13,6 +13,7 @@ namespace Code{
 		[SerializeField] GameObject gameOverUI;
 		[SerializeField] GameObject criticalHealthUI;
 		public static float PlayerDMG = 1;
+		private Vector2 shipTransform;
 
 		[SerializeField] GameObject _player;
 		[SerializeField] GameObject _bonusPrefab;
@@ -101,14 +102,17 @@ namespace Code{
 		IEnumerator SpawnBonus()
 		{
 			while (true) {
+				
 				_dontAsk = true;
 				StopFirstCorutineInduction -= 1;
             
 				if (StopFirstCorutineInduction <= 0) {
                 
+					float x = Random.Range(0f,1f);
+					float y = Random.Range(0f,1f);
+					
 					bonus =  Instantiate(_bonusPrefab, 
-						new Vector3(Random.Range(_minVectorXValue,_maxVectorXValue),
-							Random.Range(_minVectorYValue,_maxVectorYValue))
+						Camera.main.ViewportToWorldPoint(new Vector3(x, y, 1))
 						, new Quaternion(0,0,0,0));
 					yield return new WaitForSeconds(_timeToSpawn);
 					if (bonus != null) {
@@ -122,11 +126,12 @@ namespace Code{
 
 		void PickUpBonus()
 		{
+			shipTransform = gameObject.transform.GetChild(0).transform.position;
 			if(!_dontAsk)
 				return;
-        
-			if(Vector2.Distance(_player.transform.position, bonus.transform.position) <= 1){
+			if(Vector2.Distance(shipTransform, bonus.transform.position) <= 1){
 				PickUp();
+				
 				Destroy(bonus);
 				_dontAsk = false;
 			}
@@ -134,18 +139,21 @@ namespace Code{
 
 		void PickUp()
 		{
-			var pickUpId = Random.Range(0,2);
-			Debug.Log(pickUpId);
+			var pickUpId = Random.Range(0,3);
+			Debug.Log("pickUpId" +pickUpId);
 			switch (pickUpId) {
 				case 0: //Health
 					_healingValues += _healingValues;
+					Debug.LogWarning("CollectHeal");
 					break;
 				case 1: //Speed 0.1
 					PlayerController.acceleration += _addSpeed;
+					Debug.LogWarning("CollectSpeed");
 					break;
                 
 				case 2: //DMG 0.1
 					PlayerDMG += _addDMG;
+					Debug.LogWarning("CollectDMG");
 					break;
 			}
 		}
