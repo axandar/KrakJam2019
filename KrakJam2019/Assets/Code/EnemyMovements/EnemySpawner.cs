@@ -4,29 +4,30 @@ using UnityEngine;
 
 namespace Code.EnemyMovements{
 	public class EnemySpawner : MonoBehaviour{
-		[SerializeField] Camera gameCamera;
+		[SerializeField] private Camera gameCamera;
+		[SerializeField] private GameController gameController;
 
-		[SerializeField] GameObject enemyBombPrefab;
-		[SerializeField] GameObject enemyLineXRightPrefab;
-		[SerializeField] GameObject enemyLineXLeftPrefab;
+		[SerializeField] private GameObject enemyBombPrefab;
+		[SerializeField] private GameObject enemyLineXRightPrefab;
+		[SerializeField] private GameObject enemyLineXLeftPrefab;
 
-		[SerializeField] Transform playerTransform;
-		[SerializeField] Transform wallLeftTransform;
-		[SerializeField] Transform wallRightTransform;
+		[SerializeField] private Transform playerTransform;
+		[SerializeField] private Transform wallLeftTransform;
+		[SerializeField] private Transform wallRightTransform;
 
-		readonly Queue<EnemySpawnInfo> _enemySpawnInfoQueue = new Queue<EnemySpawnInfo>();
+		private readonly Queue<EnemySpawnInfo> _enemySpawnInfoQueue = new Queue<EnemySpawnInfo>();
 
-		EnemySpawnInfo.SpawnEnemyFunction _inLineXRight;
-		EnemySpawnInfo.SpawnEnemyFunction _inLineXLeft;
-		EnemySpawnInfo.SpawnEnemyFunction _bomb;
+		private EnemySpawnInfo.SpawnEnemyFunction _inLineXRight;
+		private EnemySpawnInfo.SpawnEnemyFunction _inLineXLeft;
+		private EnemySpawnInfo.SpawnEnemyFunction _bomb;
 
-		void Start(){
+		private void Start(){
 			_inLineXRight = SpawnEnemyGoesInLineXRight;
 			_inLineXLeft = SpawnEnemyGoesInLineXLeft;
 			_bomb = SpawnEnemyBomb;
 		}
 
-		void Update(){
+		private void Update(){
 			if(_enemySpawnInfoQueue.Count == 0){
 				GenerateSpawnInfo();
 			}
@@ -40,7 +41,7 @@ namespace Code.EnemyMovements{
 			}
 		}
 
-		void GenerateSpawnInfo(){
+		private void GenerateSpawnInfo(){
 			var quantity = Random.Range(1, 10);
 			for(var i = 0; i < quantity; i++){
 				var spawnFunction = GetSpawnEnemyFunction();
@@ -50,7 +51,7 @@ namespace Code.EnemyMovements{
 			}
 		}
 
-		EnemySpawnInfo.SpawnEnemyFunction GetSpawnEnemyFunction(){
+		private EnemySpawnInfo.SpawnEnemyFunction GetSpawnEnemyFunction(){
 			var index = Random.Range(0, 3);
 			switch(index){
 				case 0:
@@ -64,28 +65,31 @@ namespace Code.EnemyMovements{
 			}
 		}
 
-		void SpawnEnemyGoesInLineXRight(){
+		private void SpawnEnemyGoesInLineXRight(){
 			var enemy = Instantiate(enemyLineXRightPrefab);
 			var enemyAi = enemy.GetComponent<EnemyAI>();
 			enemyAi.target = wallRightTransform;
+			enemyAi.addScore.AddListener(gameController.AddScore);
 			enemy.transform.position = GenerateVectorForSpawn(enemyAi.GetRespawnArea());
 		}
 
-		void SpawnEnemyGoesInLineXLeft(){
+		private void SpawnEnemyGoesInLineXLeft(){
 			var enemy = Instantiate(enemyLineXLeftPrefab);
 			var enemyAi = enemy.GetComponent<EnemyAI>();
 			enemyAi.target = wallLeftTransform;
+			enemyAi.addScore.AddListener(gameController.AddScore);
 			enemy.transform.position = GenerateVectorForSpawn(enemyAi.GetRespawnArea());
 		}
 
-		void SpawnEnemyBomb(){
+		private void SpawnEnemyBomb(){
 			var enemy = Instantiate(enemyBombPrefab);
 			var enemyAi = enemy.GetComponent<EnemyAI>();
 			enemyAi.target = playerTransform;
+			enemyAi.addScore.AddListener(gameController.AddScore);
 			enemy.transform.position = GenerateVectorForSpawn(enemyAi.GetRespawnArea());
 		}
 
-		Vector3 GenerateVectorForSpawn(RespawnArea respawnArea){
+		private Vector3 GenerateVectorForSpawn(RespawnArea respawnArea){
 			var x = Random.Range(respawnArea.MinX, respawnArea.MaxX);
 			var y = Random.Range(respawnArea.MinY, respawnArea.MaxY);
 			return gameCamera.ViewportToWorldPoint(new Vector3(x, y, 1));
