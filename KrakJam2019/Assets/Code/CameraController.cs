@@ -2,7 +2,7 @@
 using Code.Enemy;
 using UnityEngine;
 
-public class CameraControler : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform jakisTamTransform;
 

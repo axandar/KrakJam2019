@@ -34,8 +34,8 @@ public class CameraShake : MonoBehaviour {
     IEnumerator ShakeCor ( float shakeDuration, float shakeMagnitude)
     {
         while (shakeDuration > 0) {
-            Debug.Log(shakeDuration + "ShakeDuration");
-            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeMagnitude * 2;
+            if (tmp > shakeDuration)
+            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeMagnitude;
             shakeDuration -= Time.deltaTime;
             yield return null;
         } 
