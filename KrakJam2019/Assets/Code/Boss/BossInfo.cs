@@ -12,6 +12,7 @@ public class BossInfo : MonoBehaviour{
    [SerializeField] private float _health;
    [SerializeField] private int _scoreValue;
    [SerializeField] private BossRespawner _bossRespawner;
+   [SerializeField] private AmbientMusicManager _musicManager;
    
    
    public AddScoreEvent addScore;
@@ -19,6 +20,7 @@ public class BossInfo : MonoBehaviour{
 
    private void OnEnable(){
       CurrentHealth = _health;
+      _musicManager.StopAmbientMusic();
    }
 
    public float CurrentHealth{
@@ -28,11 +30,17 @@ public class BossInfo : MonoBehaviour{
          if (currentHealth <= 0){
             _bossRespawner.InvokeRespawnBoss();
             addScore.Invoke(_scoreValue);
+            
             gameObject.SetActive(false);
          }
       }
    }
-   
+
+   private void OnDisable()
+   {
+      _musicManager.StartAmbientMusic();
+   }
+
    [Serializable]
    public class AddScoreEvent : UnityEvent<int> {
    }
