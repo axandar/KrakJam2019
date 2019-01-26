@@ -10,7 +10,6 @@ public class RocketShooter : MonoBehaviour {
      [SerializeField] float rocketVelocity;
      [SerializeField] float rocketTimer;
      [SerializeField] float shootingDelay;
-    
 
      bool enableShooting = true;
      
