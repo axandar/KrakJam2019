@@ -58,6 +58,9 @@ namespace Code{
 			return distance < 0.01f;
 		}
 
+		public RespawnArea GetRespawnArea(){
+			return enemyMovement.GetRespawnArea();
+		}
 		
 		[ContextMenu("Kill")]
 		private void Kill()
