@@ -145,15 +145,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Shared/Rainbow.shader">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-130">
-              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+            <state relative-caret-position="615">
+              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding>
-                <marker date="1548507284813" expanded="true" signature="0:137" ph="/* Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)' ... */" />
-                <marker date="1548507284813" expanded="true" signature="165:2961" ph="{...}" />
-                <marker date="1548507284813" expanded="true" signature="178:820" ph="{...}" />
-                <marker date="1548507284813" expanded="true" signature="832:2938" ph="{...}" />
-                <marker date="1548507284813" expanded="true" signature="991:2935" ph="{...}" />
-                <marker date="1548507284813" expanded="true" signature="1004:2927" ph="{...}" />
+                <marker date="1548511925680" expanded="true" signature="111:1504" ph="{...}" />
+                <marker date="1548511925680" expanded="true" signature="124:376" ph="{...}" />
+                <marker date="1548511925680" expanded="true" signature="388:1481" ph="{...}" />
+                <marker date="1548511925680" expanded="true" signature="396:1478" ph="{...}" />
+                <marker date="1548511925680" expanded="true" signature="409:1470" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -185,8 +184,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Code/RocketShooter.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="55" column="52" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="52" />
+            <state relative-caret-position="525">
+              <caret line="55" column="81" selection-start-line="55" selection-start-column="68" selection-end-line="55" selection-end-column="81" />
               <folding>
                 <marker date="1548505956578" expanded="false" signature="6:108" ph="..." />
                 <marker date="1548505956578" expanded="true" signature="152:2040" ph="{...}" />
@@ -235,8 +234,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Code/Enemy/EnemyAI.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+            <state relative-caret-position="815">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <marker date="1548505956545" expanded="true" signature="6:58" ph="..." />
                 <marker date="1548505956545" expanded="true" signature="81:1960" ph="{...}" />
@@ -269,6 +268,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Desktop/BG/1/Rainbow.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/EnemyMovements/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Temp/Compiled-_Shaders-Rainbow.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/GameController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -310,7 +310,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="977" />
     <option name="y" value="125" />
     <option name="width" value="945" />
@@ -406,7 +406,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28726000" />
+    <option name="totallyTimeSpent" value="29961000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -418,7 +418,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.34065935" />
@@ -514,8 +514,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/RocketShooter.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="55" column="52" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="52" />
+        <state relative-caret-position="525">
+          <caret line="55" column="81" selection-start-line="55" selection-start-column="68" selection-end-line="55" selection-end-column="81" />
           <folding>
             <marker date="1548505956578" expanded="false" signature="6:108" ph="..." />
             <marker date="1548505956578" expanded="true" signature="152:2040" ph="{...}" />
@@ -540,7 +540,6 @@
           <caret line="74" selection-start-line="74" selection-end-line="77" selection-end-column="9" />
           <folding>
             <marker date="1548499927215" expanded="false" signature="6:58" ph="..." />
-            <marker date="1548499927215" expanded="true" signature="80:1815" ph="{...}" />
             <marker date="1548499927215" expanded="true" signature="165:1747" ph="{...}" />
             <marker date="1548499927215" expanded="true" signature="540:806" ph="{...}" />
             <marker date="1548499927215" expanded="true" signature="831:989" ph="{...}" />
@@ -561,8 +560,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/Enemy/EnemyAI.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        <state relative-caret-position="815">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
           <folding>
             <marker date="1548505956545" expanded="true" signature="6:58" ph="..." />
             <marker date="1548505956545" expanded="true" signature="81:1960" ph="{...}" />
@@ -646,13 +645,7 @@
         <state relative-caret-position="-325" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Rainbow Shader/Rainbow.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Rainbow Shader/Rainbow.shader" />
     <entry file="file://$PROJECT_DIR$/Temp/Compiled-_Shaders-Rainbow.shader">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -689,15 +682,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Shared/Rainbow.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+        <state relative-caret-position="615">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
-            <marker date="1548507284813" expanded="true" signature="0:137" ph="/* Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)' ... */" />
-            <marker date="1548507284813" expanded="true" signature="165:2961" ph="{...}" />
-            <marker date="1548507284813" expanded="true" signature="178:820" ph="{...}" />
-            <marker date="1548507284813" expanded="true" signature="832:2938" ph="{...}" />
-            <marker date="1548507284813" expanded="true" signature="991:2935" ph="{...}" />
-            <marker date="1548507284813" expanded="true" signature="1004:2927" ph="{...}" />
+            <marker date="1548511925680" expanded="true" signature="111:1504" ph="{...}" />
+            <marker date="1548511925680" expanded="true" signature="124:376" ph="{...}" />
+            <marker date="1548511925680" expanded="true" signature="388:1481" ph="{...}" />
+            <marker date="1548511925680" expanded="true" signature="396:1478" ph="{...}" />
+            <marker date="1548511925680" expanded="true" signature="409:1470" ph="{...}" />
           </folding>
         </state>
       </provider>
