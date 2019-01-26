@@ -1,82 +1,63 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Code;
-using Code.Enemy;
+﻿using Code.Enemy;
 using UnityEngine;
 
-public class RocketShooter : MonoBehaviour{
-	[SerializeField] GameObject rocketLauncher;
-	[SerializeField] GameObject rocket01;
-	[SerializeField] GameObject rocket02;
-	[SerializeField] GameObject rocket03;
-	[SerializeField] GameObject rocket;
+namespace Code{
+	public class RocketShooter : MonoBehaviour{
+		[SerializeField] GameObject rocketLauncher;
+		[SerializeField] GameObject rocket01;
+		[SerializeField] GameObject rocket02;
+		[SerializeField] GameObject rocket03;
 
+		[SerializeField] float rocketVelocity;
+		[SerializeField] float rocketTimer;
+		[SerializeField] private float delayBetweenShoots;
 
-	[SerializeField] float rocketVelocity;
-	[SerializeField] float rocketTimer;
-	[SerializeField] float shootingDelay;
-	private int randomValues;
-	private static int bulletId;
+		public int boomBoomValue;
+		public bool isShootingDisabled;
 
-	public int boomBoomValue;
-	public bool isShootingDisabled;
-	bool enableShooting = true;
+		private float timeFromLastShoot = 0;
 
-	void Awake() {
-		StartCoroutine(Kappa());
-		rocket = rocket01;
-	}
-
-	void Update() {
-		if (!isShootingDisabled)
-			ShootRocket();
-	}
-
-	void ShootRocket() {
-          if (enableShooting) {
-               if (!Input.GetMouseButton(0)) return;
-               enableShooting = false;
-               var temporaryRocket = Instantiate(rocket, rocketLauncher.transform.position,
-                    rocketLauncher.transform.rotation) as GameObject;
-
-			var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody2D>();
-			temporaryRigidbody.AddForce(transform.up * rocketVelocity);
-			Invoke(nameof(EnableShooting), shootingDelay);
-			if(temporaryRocket != null){
-				Destroy(temporaryRocket, rocketTimer);
+		void Update(){
+			if(!isShootingDisabled && Input.GetMouseButton(0) && timeFromLastShoot >= delayBetweenShoots){
+				ShootRocket();
+				timeFromLastShoot = 0;
+			}else{
+				timeFromLastShoot += Time.deltaTime;
 			}
 		}
-	}
-     void EnableShooting() {
-          enableShooting = true;
-     }
 
-     void OnCollisionEnter2D(Collision2D other) {
-          if (other.gameObject.tag == "Enemy") {
-               other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
-               Destroy(other.gameObject);
-          }
-     }
+		void ShootRocket(){
+			if(rocketLauncher == null){
+				return;
+			}
 
-	IEnumerator Kappa(){
-		while(true){
-			randomValues++;
-			if(randomValues == 3)
-				randomValues = 1;
-			bulletId = Random.Range(0, 4);
-			Debug.Log(bulletId);
-			yield return new WaitForSeconds(Random.Range(0, 1));
+			var rocket = GetRocket();
+			var temporaryRocket = Instantiate(rocket, rocketLauncher.transform.position, rocketLauncher.transform.rotation);
+			var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody2D>();
+		
+			temporaryRigidbody.AddForce(transform.up * rocketVelocity);
+			Destroy(temporaryRocket, rocketTimer);
+		}
+
+		void OnCollisionEnter2D(Collision2D other){
+			if(other.gameObject.CompareTag("Enemy")){
+				other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
+				Destroy(other.gameObject);
+			}
+		}
+
+		private GameObject GetRocket(){
+			var bulletId = Random.Range(0, 4);
 
 			switch(bulletId){
 				case 1:
-					rocket = rocket01;
-					break;
+					return rocket01;
 				case 2:
-					rocket = rocket02;
-					break;
+					return rocket02;
 				case 3:
-					rocket = rocket03;
-					break;
+					return rocket03;
+				default:
+					return rocket01;
 			}
 		}
 	}
