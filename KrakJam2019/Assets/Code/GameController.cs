@@ -52,7 +52,7 @@ namespace Code{
 		}
 
 		void Update() {
-			Debug.Log("ScoreValues: " + scoreValue);
+			Debug.Log("HealthPoints: " + HealthPoints);
 			scoreText.text = "Score: " + scoreValue;
 			healthText.text = "Health: " + HealthPoints;
 			if(Input.GetKeyDown(KeyCode.K)){
