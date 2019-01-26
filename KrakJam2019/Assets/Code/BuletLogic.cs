@@ -28,4 +28,6 @@ public class BuletLogic : MonoBehaviour
         enemyPrefab = enemys[0].GetComponent<EnemyAI>();
         return true;
     }
+    
+    
 }

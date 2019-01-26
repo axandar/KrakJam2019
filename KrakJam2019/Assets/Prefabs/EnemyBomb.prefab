@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 935014579501978287}
   - component: {fileID: 2575737297199010274}
   - component: {fileID: 5512338466876800231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,3 +110,4 @@ MonoBehaviour:
   nextStep: {x: 0, y: 0, z: 0}
   speed: 5
   isBomb: 1
+  health: 1

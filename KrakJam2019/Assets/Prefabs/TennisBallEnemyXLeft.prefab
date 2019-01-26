@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3386944534530374888}
   - component: {fileID: 1018119647554117239}
   - component: {fileID: 8261507192210645701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TennisBallEnemyXLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,4 +115,4 @@ MonoBehaviour:
   nextStep: {x: 0, y: 0, z: 0}
   speed: 5
   isBomb: 1
-  Health: 5
+  health: 2
