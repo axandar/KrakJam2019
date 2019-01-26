@@ -161,7 +161,6 @@ GameObject:
   - component: {fileID: 434674633}
   - component: {fileID: 434674632}
   - component: {fileID: 434674631}
-  - component: {fileID: 434674630}
   - component: {fileID: 434674629}
   m_Layer: 0
   m_Name: Starfield-Front
@@ -197,18 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parralax: 8
---- !u!114 &434674630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434674627}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4b5748d3784d948982feae73773973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &434674631
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -322,7 +309,6 @@ GameObject:
   - component: {fileID: 631247701}
   - component: {fileID: 631247700}
   - component: {fileID: 631247699}
-  - component: {fileID: 631247698}
   - component: {fileID: 631247703}
   m_Layer: 0
   m_Name: Starfield
@@ -331,18 +317,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &631247698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631247697}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4b5748d3784d948982feae73773973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &631247699
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1081,7 +1055,6 @@ GameObject:
   - component: {fileID: 1717112592}
   - component: {fileID: 1717112591}
   - component: {fileID: 1717112590}
-  - component: {fileID: 1717112589}
   - component: {fileID: 1717112588}
   m_Layer: 0
   m_Name: Starfield-Mid
@@ -1117,18 +1090,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parralax: 6
---- !u!114 &1717112589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717112586}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4b5748d3784d948982feae73773973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1717112590
 MeshRenderer:
   m_ObjectHideFlags: 0

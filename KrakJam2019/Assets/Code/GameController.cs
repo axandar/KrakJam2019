@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-
     [SerializeField] Text scoreText;
     [SerializeField] Text healthText;
     [SerializeField] Text criticalHealthText;
