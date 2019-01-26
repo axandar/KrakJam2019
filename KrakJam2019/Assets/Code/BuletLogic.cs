@@ -6,12 +6,12 @@ using Code.EnemyMovements;
 using UnityEngine;
 
 public class BuletLogic : MonoBehaviour{
-	private float dMG;
-	private EnemyAI enemyPrefab;
-	[SerializeField] private LayerMask layer;
-	[SerializeField] private float DMGRange;
+	float dMG;
+	EnemyAI enemyPrefab;
+	[SerializeField] LayerMask layer;
+	[SerializeField] float DMGRange;
 
-	private void Update(){
+	void Update(){
 		dMG = GameController.PlayerDMG;
 		Debug.Log(dMG);
 		if(LookForTarget()){
@@ -27,3 +27,5 @@ public class BuletLogic : MonoBehaviour{
 		return true;
 	}
 }
+
+
