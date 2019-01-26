@@ -395,6 +395,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFlash: {fileID: 1364822076}
   enemyFlash: {fileID: 1117022898}
+  camTransform: {fileID: 2021946531}
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1 &1364822074
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +448,12 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!4 &2021946531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6060857754450281588, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 3761752866256591798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2128326850 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6060857754555351061, guid: cdcaf005d2f217c41943d99e0e14c1ad,
