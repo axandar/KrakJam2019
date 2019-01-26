@@ -64,6 +64,7 @@ namespace Code.Enemy{
 
 		public void DamageMeBoi(int boomBoomValue){
 			Debug.Log("Damage taken");
+			Events.BroadcastStartShake(0.4f,0.02f);
 			_currentHealth -= boomBoomValue;
 		}
 
@@ -79,8 +80,7 @@ namespace Code.Enemy{
 			}
 		}
 
-		private void OnDisable()
-		{
+		private void OnDisable(){
 			Instantiate(explosion,gameObject.transform.position,Quaternion.identity);
 		}
 

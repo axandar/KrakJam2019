@@ -1,24 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MainMenuController : MonoBehaviour{
-	[SerializeField] Button playButton;
-	[SerializeField] Button exitButton;
+namespace Code{
+	public class MainMenuController : MonoBehaviour{
+		[SerializeField] private Button playButton;
+		[SerializeField] private Button exitButton;
 
-	void Start(){
-		playButton.onClick.AddListener(Play);
-		exitButton.onClick.AddListener(Exit);
-	}
+		private void Start(){
+			playButton.onClick.AddListener(Play);
+			exitButton.onClick.AddListener(Exit);
+		}
 
-	void Play(){
-		SceneManager.LoadScene(1);
-	}
+		private static void Play(){
+			SceneManager.LoadScene(1);
+		}
 
-	void Exit(){
-		Application.Quit();
-		Debug.Log("Wyjszlo z apki");
+		private static void Exit(){
+			Application.Quit();
+			Debug.Log("Wyjszlo z apki");
+		}
 	}
 }

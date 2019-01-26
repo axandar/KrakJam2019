@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class AnimationAutoDestroy : MonoBehaviour
-{
-   public void DestroyThisObject(){
-      Destroy(gameObject);
+namespace Code{
+   public class AnimationAutoDestroy : MonoBehaviour{
+      public void DestroyThisObject(){
+         gameObject.SetActive(false);
+      }
    }
 }

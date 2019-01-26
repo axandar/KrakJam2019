@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour{
-	[SerializeField] Transform jakisTamTransform;
+namespace Code{
+    public class CameraController : MonoBehaviour{
+        [SerializeField] private Transform jakisTamTransform;
 
-	void Update(){
-		jakisTamTransform.position = new Vector3(transform.position.x, transform.position.y, -10f);
-	}
+        private void FixedUpdate(){
+            var position = transform.position;
+            jakisTamTransform.position = new Vector3(position.x , position.y, -10f);
+        }
+    }
 }

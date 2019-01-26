@@ -1,35 +1,42 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class CameraShake : MonoBehaviour {
-    public Transform camTransform;
-	
-    public float shakeDuration = 0f;
-	
-    public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
-	
-    Vector3 originalPos;
-	
-    void Awake() {
-        if (camTransform == null)
-        {
-            camTransform = GetComponent(typeof(Transform)) as Transform;
-        }
-    }
-	
-    void OnEnable() {
-        originalPos = camTransform.localPosition;
-    }
+namespace Code{
+	public class CameraShake : MonoBehaviour{
+		public Transform camTransform;
+		
+		private Coroutine _shakeCoroutine;
+		private Vector3 _originalPos;
+		private float _tmp;
 
-    void Update() {
-        if (shakeDuration > 0) {
-            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
-			
-            shakeDuration -= Time.deltaTime * decreaseFactor;
-        } else {
-            shakeDuration = 0f;
-            camTransform.localPosition = originalPos;
-        }
-    }
+		private void Awake(){
+			if(camTransform == null){
+				camTransform = GetComponent(typeof(Transform)) as Transform;
+				_tmp = 0;
+			}
+
+			Events.StartShake += StartShake;
+		}
+
+		private void OnEnable(){
+			_originalPos = camTransform.localPosition;
+		}
+
+		private void StartShake(float shakeDuration, float shakeMagnitude){
+			if(_shakeCoroutine != null)
+				StopCoroutine(_shakeCoroutine);
+			_shakeCoroutine = StartCoroutine(ShakeCor(shakeDuration, shakeMagnitude));
+		}
+
+		private IEnumerator ShakeCor(float shakeDuration, float shakeMagnitude){
+			while(shakeDuration > 0){
+				if(_tmp > shakeDuration)
+					camTransform.localPosition = _originalPos + Random.insideUnitSphere * shakeMagnitude;
+				shakeDuration -= Time.deltaTime;
+				yield return null;
+			}
+
+			camTransform.localPosition = _originalPos;
+		}
+	}
 }

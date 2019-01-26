@@ -30,9 +30,11 @@ namespace Code{
 		private Vector2 _shipTransform;
 		
 		public int HealthPoints {
-			get { return healthPoints; }
+			get => healthPoints;
 			set{
 				healthPoints = value;
+				Debug.Log("PlayerGetHit");
+				Events.BroadcastStartShake(1 ,0.8f);
 			}
 		}
 
@@ -137,7 +139,7 @@ namespace Code{
 					Debug.LogWarning("CollectHeal");
 					break;
 				case 1: //Speed 0.1
-					PlayerController.acceleration += addSpeed;
+					PlayerController.Acceleration += addSpeed;
 					Debug.LogWarning("CollectSpeed");
 					break;
                 
