@@ -56,8 +56,9 @@ namespace Code{
 		void Update() {
 			scoreText.text = "Score: " + scoreValue;
 			healthText.text = "Health: " + HealthPoints;
-
-
+			if (Input.GetKeyDown(KeyCode.K))
+				HealthPoints = HealthPoints - 10;
+			Debug.Log(HealthPoints);	
 			if (HealthPoints <= 0)
 				GameOver();
 
