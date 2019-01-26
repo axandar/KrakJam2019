@@ -50,5 +50,9 @@ namespace Code{
 			var distance = Vector3.Distance(transform.position, nextStep);
 			return distance < 0.01f;
 		}
+
+		public RespawnArea GetRespawnArea(){
+			return enemyMovement.GetRespawnArea();
+		}
 	}
 }
