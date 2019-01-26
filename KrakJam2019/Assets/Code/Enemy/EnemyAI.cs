@@ -6,7 +6,7 @@ namespace Code.Enemy{
 	// ReSharper disable once InconsistentNaming
 	public class EnemyAI : MonoBehaviour{
 		public Transform target;
-
+		[SerializeField] private GameController _controller;
 		[SerializeField] private EnemyMovement enemyMovement;
 		[SerializeField] private Vector3 nextStep;
 		[SerializeField] private float speed = 5;
@@ -80,13 +80,13 @@ namespace Code.Enemy{
 			health -= health;
 		}
 
-		[Serializable]
-		public class AddScoreEvent : UnityEvent<int>{}
-
 
 		private void OnCollisionEnter2D(Collision2D other){
-			var player = other.gameObject.CompareTag("Player");
+			_controller.HealthPoints -= 10;
 			Destroy(gameObject);
 		}
+
+		[Serializable]
+		public class AddScoreEvent : UnityEvent<int> { }
 	}
 }
