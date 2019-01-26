@@ -42,7 +42,6 @@ namespace Code{
 		void OnCollisionEnter2D(Collision2D other){
 			if(other.gameObject.CompareTag("Enemy")){
 				other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
-				Destroy(other.gameObject);
 			}
 		}
 

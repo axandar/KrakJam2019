@@ -138,6 +138,8 @@ MonoBehaviour:
   speed: 5
   isBomb: 1
   scoreValue: 10
+  explosion: {fileID: 3480823955964553596, guid: 026f2ace836686b49b95b22381a8bd3f,
+    type: 3}
   addScore:
     m_PersistentCalls:
       m_Calls:
