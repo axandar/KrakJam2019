@@ -15,7 +15,7 @@ public class RocketShooter : MonoBehaviour {
      [SerializeField] float rocketVelocity;
      [SerializeField] float rocketTimer;
      [SerializeField] float shootingDelay;
-     private int randomValues = 2;
+     private int randomValues ;
      private static int bulletId;
 
     
@@ -55,10 +55,12 @@ public class RocketShooter : MonoBehaviour {
      private IEnumerator Kappa()
      {
           while (true) {
-               randomValues = Random.Range(0, 3);
+               randomValues++;
+               if (randomValues == 3)
+                    randomValues = 1;
                bulletId = Random.Range(0, 4);
                Debug.Log(bulletId);
-               yield return new WaitForSeconds(randomValues);
+               yield return new WaitForSeconds(Random.Range(0, 1));
 
                switch (bulletId) {
                          case 1:
