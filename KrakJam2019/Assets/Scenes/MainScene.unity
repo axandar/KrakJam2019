@@ -396,8 +396,8 @@ MonoBehaviour:
   playerFlash: {fileID: 1364822076}
   enemyFlash: {fileID: 1117022898}
   camTransform: {fileID: 2021946531}
-  shakeDuration: 0
-  shakeAmount: 0.7
+  shakeDuration: 2
+  shakeAmount: 5
   decreaseFactor: 1
 --- !u!1 &1364822074
 GameObject:
@@ -527,5 +527,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: _healthPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864719739922785695, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: enemyBombPrefab
+      value: 
+      objectReference: {fileID: 5094142423326782844, guid: 252a9cba2cf0bf74594336907ac0dedc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdcaf005d2f217c41943d99e0e14c1ad, type: 3}
