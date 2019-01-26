@@ -53,6 +53,9 @@ namespace Code{
 			healthText.text = "Health: " + healthValue;
 
 
+			if (Input.GetKeyDown(KeyCode.K))
+				healthValue = healthValue - 10;
+			Debug.Log(healthValue);	
 			if (healthValue <= 0)
 				GameOver();
 
