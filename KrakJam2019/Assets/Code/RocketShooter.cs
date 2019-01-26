@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Code;
 using UnityEngine;
 
 public class RocketShooter : MonoBehaviour {
@@ -9,6 +10,7 @@ public class RocketShooter : MonoBehaviour {
      [SerializeField] float rocketVelocity;
      [SerializeField] float rocketTimer;
      [SerializeField] float shootingDelay;
+    
 
      bool enableShooting = true;
      
@@ -23,14 +25,18 @@ public class RocketShooter : MonoBehaviour {
                var temporaryRocket = Instantiate(rocket, rocketLauncher.transform.position,
                     rocketLauncher.transform.rotation) as GameObject;
 
-               var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody>();
+               var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody2D>();
                temporaryRigidbody.AddForce(transform.up * rocketVelocity);
                Invoke(nameof(EnableShooting), shootingDelay);
-               Destroy(temporaryRocket, rocketTimer);
+               if (temporaryRocket != null) {
+                    Destroy(temporaryRocket, rocketTimer);
+               }
           }
      }
 
      void EnableShooting() {
           enableShooting = true;
      }
+
+    
 }

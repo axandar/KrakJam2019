@@ -1,30 +1,36 @@
 ﻿using Code.EnemyMovements;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace Code{
 	// ReSharper disable once InconsistentNaming
 	public class EnemyAI : MonoBehaviour{
 		public Transform target;
 
-		[SerializeField] private EnemyMovement enemyMovement;
-		[SerializeField] private Vector3 nextStep;
-		[SerializeField] private float speed = 5;
-		[SerializeField] private bool isBomb;
+		[SerializeField] EnemyMovement enemyMovement;
+		[SerializeField] Vector3 nextStep;
+		[SerializeField] float speed = 5;
+		[SerializeField] bool isBomb;
+		public float Health = 5;
 
-		private bool _isMoving = true;
 
-		private void Start(){
+		bool _isMoving = true;
+
+		void Start(){
 			enemyMovement.GenerateRoute(transform.position, target.position);
 			nextStep = enemyMovement.GetNextVector();
 		}
 
-		private void Update(){
+		void Update(){
 			if(!isBomb){
 				//przeciwnicy odwracaja sie w strone gracza
 			}
+			
+			if(Health <= 0)
+				Destroy(gameObject);
 		}
 
-		private void FixedUpdate(){
+		void FixedUpdate(){
 			if(_isMoving){
 				MoveEnemy();
 			}else if(isBomb){
@@ -33,7 +39,7 @@ namespace Code{
 			}
 		}
 
-		private void MoveEnemy(){
+		void MoveEnemy(){
 			if(IsInNextStep()){
 				if(enemyMovement.IsNextVector()){
 					nextStep = enemyMovement.GetNextVector();
@@ -46,13 +52,19 @@ namespace Code{
 			transform.position = Vector3.MoveTowards(transform.position, nextStep, step);
 		}
 
-		private bool IsInNextStep(){
+		bool IsInNextStep(){
 			var distance = Vector3.Distance(transform.position, nextStep);
 			return distance < 0.01f;
 		}
 
 		public RespawnArea GetRespawnArea(){
 			return enemyMovement.GetRespawnArea();
+		}
+		
+		[ContextMenu("Kill")]
+		void Kill()
+		{
+			Health -= 5;
 		}
 	}
 }
