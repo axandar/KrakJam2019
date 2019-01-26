@@ -54,7 +54,7 @@ public class RocketShooter : MonoBehaviour{
      void OnCollisionEnter2D(Collision2D other) {
           if (other.gameObject.tag == "Enemy") {
                other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
-               Destroy(gameObject);
+               Destroy(other.gameObject);
           }
      }
 

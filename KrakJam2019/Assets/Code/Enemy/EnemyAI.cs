@@ -27,6 +27,7 @@ namespace Code.Enemy {
 			enemyMovement.GenerateRoute(transform.position,
 				new Vector3(temp.x, temp.y, temp.z));
 			nextStep = enemyMovement.GetNextVector();
+			
 		}
 
 		void Update() {
@@ -40,7 +41,12 @@ namespace Code.Enemy {
 					Destroy(gameObject);
 				}
 			}
-			
+
+			Vector3 MakeZAxisZero;
+			MakeZAxisZero = transform.position;
+			MakeZAxisZero.z = 0;
+			transform.position = MakeZAxisZero;
+
 		}
 
 		void FixedUpdate(){
@@ -92,5 +98,10 @@ namespace Code.Enemy {
 		}
 
 
+		private void OnCollisionEnter2D(Collision2D other)
+		{
+			var player = other.gameObject.CompareTag("Player");
+			Destroy(gameObject);
+		}
 	}
 }

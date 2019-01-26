@@ -134,3 +134,6 @@ MonoBehaviour:
     m_TypeName: Code.Enemy.EnemyAI+AddScoreEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   health: 1
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 512
