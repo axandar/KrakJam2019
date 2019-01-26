@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Code;
+using Code.Enemy;
 using UnityEngine;
 
 public class RocketShooter : MonoBehaviour {
@@ -15,21 +16,22 @@ public class RocketShooter : MonoBehaviour {
      [SerializeField] float rocketVelocity;
      [SerializeField] float rocketTimer;
      [SerializeField] float shootingDelay;
-     private int randomValues ;
-     private static int bulletId;
+     int randomValues ;
+     static int bulletId;
 
-    
-
+     public int boomBoomValue;
+     public bool isShootingDisabled;
      bool enableShooting = true;
 
-     private void Awake()
+     void Awake()
      {
           StartCoroutine(Kappa());
           rocket = rocket01;
      }
 
      void Update() {
-          ShootRocket();
+          if(!isShootingDisabled)
+               ShootRocket();
      }
      
      void ShootRocket() {
@@ -51,8 +53,15 @@ public class RocketShooter : MonoBehaviour {
      void EnableShooting() {
           enableShooting = true;
      }
-    
-     private IEnumerator Kappa()
+
+     void OnCollisionEnter2D(Collision2D other) {
+          if (other.gameObject.tag == "Enemy") {
+               other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
+               Destroy(gameObject);
+          }
+     }
+
+     IEnumerator Kappa()
      {
           while (true) {
                randomValues++;

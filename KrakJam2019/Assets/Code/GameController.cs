@@ -20,29 +20,31 @@ public class GameController : MonoBehaviour {
     
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _bonusPrefab;
-    [SerializeField] private float _timeToSpawn = 15;
+    [SerializeField] float _timeToSpawn = 15;
 
-    private int StopFirstCorutineInduction = 1;
-    private GameObject bonus;
-    private bool _dontAsk;
+    int StopFirstCorutineInduction = 1;
+    GameObject bonus;
+    bool _dontAsk;
 
     [Header("Map Sizes")] 
-    [SerializeField] private float _minVectorXValue;
-    [SerializeField] private float _maxVectorXValue;
-    [SerializeField] private float _minVectorYValue;
-    [SerializeField] private float _maxVectorYValue;
+    [SerializeField]
+    float _minVectorXValue;
+    [SerializeField] float _maxVectorXValue;
+    [SerializeField] float _minVectorYValue;
+    [SerializeField] float _maxVectorYValue;
     
     [Header("Bonus Values")]
-    [SerializeField] private int _healingValues = 10;
-    [SerializeField] private float _addSpeed = 0.1f;
-    [SerializeField] private float _addDMG = 1;
+    [SerializeField]
+    int _healingValues = 10;
+    [SerializeField] float _addSpeed = 0.1f;
+    [SerializeField] float _addDMG = 1;
 
 
      int scoreValue;
      [SerializeField] int healthValue;
-    bool isPies;
+     bool isPies;
 
-    private void Awake()
+    void Awake()
     {
         StartCoroutine(SpawnBonus());
     }
@@ -97,7 +99,7 @@ public class GameController : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private IEnumerator SpawnBonus()
+    IEnumerator SpawnBonus()
     {
         while (true) {
             _dontAsk = true;
@@ -119,7 +121,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    private void PickUpBonus()
+    void PickUpBonus()
     {
         if(!_dontAsk)
             return;
@@ -130,8 +132,8 @@ public class GameController : MonoBehaviour {
             _dontAsk = false;
         }
     }
-    
-    private void PickUp()
+
+    void PickUp()
     {
         var pickUpId = Random.Range(0,2);
         Debug.Log(pickUpId);
