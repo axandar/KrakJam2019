@@ -36,8 +36,10 @@ namespace Code.Enemy{
 		private void FixedUpdate(){
 			if(_isMoving){
 				MoveEnemy();
-			}else if(isBomb){
-				Debug.Log("BOOM");
+			}else{
+				if(isBomb){
+					Debug.Log("BOOM");
+				}
 				Destroy(gameObject);
 			}
 		}
