@@ -545,22 +545,18 @@ MonoBehaviour:
   scoreText: {fileID: 6060857755263908631}
   healthText: {fileID: 6060857755589386402}
   criticalHealthText: {fileID: 6060857754983070488}
-  gameUI: {fileID: 6060857755941650754}
-  gameOverUI: {fileID: 6060857754446673329}
-  criticalHealthUI: {fileID: 6060857756132292801}
-  cameraGO: {fileID: 6060857754450281545}
-  _player: {fileID: 6060857754816230941}
-  _bonusPrefab: {fileID: 7374937253802298602, guid: 4c75c443244f4b84bb0d8ee0b107d55f,
+  gameUi: {fileID: 6060857755941650754}
+  gameOverUi: {fileID: 6060857754446673329}
+  criticalHealthUi: {fileID: 6060857756132292801}
+  bonusPrefab: {fileID: 2607964847422472911, guid: 01ee1f043898fa04981980c02da8022b,
     type: 3}
-  _timeToSpawn: 15
-  _minVectorXValue: 0
-  _maxVectorXValue: 0
-  _minVectorYValue: 0
-  _maxVectorYValue: 0
-  _healingValues: 10
-  _addSpeed: 0.1
-  _addDMG: 1
-  healthValue: 100
+  timeToSpawn: 15
+  healingValues: 10
+  addSpeed: 0.1
+  addDmg: 1
+  healthPoints: 100
+  shipTransform: {x: 0, y: 0}
+  playerCamera: {fileID: 6060857754450281589}
 --- !u!1 &6060857754983070490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1372,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2636607923658660481, guid: b763b4fad325ecb48990c4811be06008,
         type: 3}
+    - target: {fileID: 817434391433144180, guid: f5b9cb71142178149bbf80d793282c47,
+        type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 6060857754816230919}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5b9cb71142178149bbf80d793282c47, type: 3}
 --- !u!4 &6864719739922785688 stripped
@@ -1466,11 +1467,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6060857754816230937}
     m_Modifications:
-    - target: {fileID: 7031603746388068641, guid: 9ae46584aa6b35346844212648739780,
-        type: 3}
-      propertyPath: m_Name
-      value: ThrusterHouseGif
-      objectReference: {fileID: 0}
     - target: {fileID: 7031603746388068645, guid: 9ae46584aa6b35346844212648739780,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1525,6 +1521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031603746388068641, guid: 9ae46584aa6b35346844212648739780,
+        type: 3}
+      propertyPath: m_Name
+      value: ThrusterHouseGif
       objectReference: {fileID: 0}
     - target: {fileID: 7031603746388068644, guid: 9ae46584aa6b35346844212648739780,
         type: 3}

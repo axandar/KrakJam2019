@@ -12,8 +12,7 @@ public class BuletLogic : MonoBehaviour{
 	[SerializeField] float DMGRange;
 
 	void Update(){
-		dMG = GameController.PlayerDMG;
-		Debug.Log(dMG);
+		dMG = GameController.PlayerDmg;
 		if(LookForTarget()){
 			enemyPrefab.health -= dMG;
 		}

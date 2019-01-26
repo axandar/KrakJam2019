@@ -6,11 +6,9 @@ namespace Code.Enemy{
 	// ReSharper disable once InconsistentNaming
 	public class EnemyAI : MonoBehaviour{
 		public Transform target;
-		[SerializeField] private GameController _controller;
 		[SerializeField] private EnemyMovement enemyMovement;
 		[SerializeField] private Vector3 nextStep;
 		[SerializeField] private float speed = 5;
-		[SerializeField] private bool isBomb;
 		[SerializeField] private int scoreValue;
 		[SerializeField] private GameObject explosion;
 		public AddScoreEvent addScore;
@@ -22,6 +20,7 @@ namespace Code.Enemy{
 			_currentHealth = health;
 			var movementInstance = Instantiate(enemyMovement);
 			enemyMovement = movementInstance;
+			enemyMovement.transform.parent = gameObject.transform;
 
 			var temp = target.position;
 			enemyMovement.GenerateRoute(transform.position,
@@ -31,9 +30,9 @@ namespace Code.Enemy{
 
 		private void Update(){
 			if(_currentHealth <= 0){
+				Debug.Log("Invoked function");
 				addScore.Invoke(scoreValue);
 				Destroy(gameObject);
-
 			}
 		}
 
@@ -41,10 +40,6 @@ namespace Code.Enemy{
 			if(_isMoving){
 				MoveEnemy();
 			}else{
-				if(isBomb){
-					Debug.Log("BOOM");
-				}
-				Debug.Log(gameObject.name);
 				Destroy(gameObject);
 			}
 		}
@@ -76,15 +71,12 @@ namespace Code.Enemy{
 			return enemyMovement.GetRespawnArea();
 		}
 
-		[ContextMenu("Kill")]
-		private void Kill(){
-			health -= health;
-		}
-
-
 		private void OnCollisionEnter2D(Collision2D other){
-			_controller.HealthPoints -= 10;
-			Destroy(gameObject);
+			if(other.gameObject.CompareTag("Player")){
+				var controller = other.gameObject.GetComponentInParent<GameController>();
+				controller.HealthPoints -= 10;
+				Destroy(gameObject);
+			}
 		}
 
 		private void OnDisable()
