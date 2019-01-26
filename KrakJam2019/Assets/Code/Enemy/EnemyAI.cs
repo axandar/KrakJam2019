@@ -9,7 +9,6 @@ namespace Code.Enemy{
 		[SerializeField] private EnemyMovement enemyMovement;
 		[SerializeField] private Vector3 nextStep;
 		[SerializeField] private float speed = 5;
-		[SerializeField] private bool isBomb;
 		[SerializeField] private int scoreValue;
 		public AddScoreEvent addScore;
 		public float health = 5;
@@ -30,10 +29,9 @@ namespace Code.Enemy{
 
 		private void Update(){
 			if(_currentHealth <= 0){
+				Debug.Log("Invoked function");
 				addScore.Invoke(scoreValue);
-				if(_currentHealth <= 0){
-					Destroy(gameObject);
-				}
+				Destroy(gameObject);
 			}
 		}
 
@@ -41,10 +39,6 @@ namespace Code.Enemy{
 			if(_isMoving){
 				MoveEnemy();
 			}else{
-				if(isBomb){
-					Debug.Log("BOOM");
-				}
-
 				Destroy(gameObject);
 			}
 		}

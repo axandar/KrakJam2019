@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &98359380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6060857755941650754, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 3761752866256591798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &164539965
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +192,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164539965}
   m_CullTransparentMesh: 0
+--- !u!1 &510282405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6060857754446673329, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 3761752866256591798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &732821651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6060857756132292801, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 3761752866256591798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938830346
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +399,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3761752866256591798}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1297352395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 3761752866256591798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297352394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20c3d0b67fd1584e840226960c8c27a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1297352396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +552,37 @@ PrefabInstance:
       propertyPath: _healthPoints
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: gameUi
+      value: 
+      objectReference: {fileID: 98359380}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: gameOverUi
+      value: 
+      objectReference: {fileID: 510282405}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: criticalHealthUi
+      value: 
+      objectReference: {fileID: 732821651}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: bonusPrefab
+      value: 
+      objectReference: {fileID: 2607964847422472911, guid: 01ee1f043898fa04981980c02da8022b,
+        type: 3}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1297352394}
+    - target: {fileID: 6864719739922785695, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1297352395}
     - target: {fileID: 3761752867492340222, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: m_TagString

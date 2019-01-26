@@ -246,8 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7031603746388068645, guid: 9ae46584aa6b35346844212648739780, type: 3}
-  controller: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-    type: 3}
   enemyMovement: {fileID: 1085792965674020452, guid: 1698582d1c81303499b6365cc2de05fa,
     type: 3}
   nextStep: {x: 0, y: 0, z: 0}
@@ -256,19 +254,7 @@ MonoBehaviour:
   scoreValue: 10
   addScore:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-          type: 3}
-        m_MethodName: AddScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: Code.Enemy.EnemyAI+AddScoreEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   health: 1
