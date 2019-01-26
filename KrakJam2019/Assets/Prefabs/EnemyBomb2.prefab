@@ -110,4 +110,13 @@ MonoBehaviour:
   nextStep: {x: 0, y: 0, z: 0}
   speed: 5
   isBomb: 1
+  scoreValue: 0
+  addScore:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Code.Enemy.EnemyAI+AddScoreEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   health: 1
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 512
