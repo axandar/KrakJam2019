@@ -5,9 +5,9 @@ using UnityEngine;
 
 public static class Events 
 {
-    public static event Action <float> TakeResourcesAfterConstract;
-    public static void BroadcastTakeResourcesAfterConstract(float shakingTime)
+    public static event Action <float,float> StartShake;
+    public static void BroadcastStartShake(float shakingTime, float shakeMagnitude)
     {
-        TakeResourcesAfterConstract?.Invoke(shakingTime);
+        StartShake?.Invoke(shakingTime, shakeMagnitude);
     }
 }

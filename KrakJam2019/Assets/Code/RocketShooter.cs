@@ -41,6 +41,7 @@ namespace Code{
 
 		void OnCollisionEnter2D(Collision2D other){
 			if(other.gameObject.CompareTag("Enemy")){
+				Events.BroadcastStartShake(1,0.06f);
 				other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
 			}
 		}

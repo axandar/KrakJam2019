@@ -33,6 +33,7 @@ namespace Code{
 			get { return healthPoints; }
 			set{
 				healthPoints = value;
+				Events.BroadcastStartShake(1 ,0.7f);
 			}
 		}
 
