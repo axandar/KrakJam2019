@@ -1,24 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class BossRespawner : MonoBehaviour
-{
-    [SerializeField] private float _bossRespawnTimer;
-    [SerializeField] private Transform _bossRespawnTransform;
-    [SerializeField] private GameObject _boss;
-    
-    
-    
-
-    private void RespawnBoss()
+namespace Code.Boss{
+    public class BossRespawner : MonoBehaviour
     {
-        _boss.transform.position = _bossRespawnTransform.position;
-        _boss.SetActive(true);
-    }
+        [SerializeField] private float bossRespawnTimer;
+        [SerializeField] private Transform bossRespawnTransform;
+        [SerializeField] private GameObject boss;
+    
+    
+    
+
+        private void RespawnBoss()
+        {
+            boss.transform.position = bossRespawnTransform.position;
+            boss.SetActive(true);
+        }
 
 
-    public void InvokeRespawnBoss(){
-        Invoke("RespawnBoss",_bossRespawnTimer);
+        public void InvokeRespawnBoss(){
+            Invoke(nameof(RespawnBoss), bossRespawnTimer);
+        }
     }
 }

@@ -80,8 +80,7 @@ namespace Code.Enemy{
 			}
 		}
 
-		private void OnDisable()
-		{
+		private void OnDisable(){
 			Instantiate(explosion,gameObject.transform.position,Quaternion.identity);
 		}
 

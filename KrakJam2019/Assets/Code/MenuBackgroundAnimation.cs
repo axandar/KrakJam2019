@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class MenuBackgroundAnimation : MonoBehaviour{
-	[SerializeField] float newXvalue, newYvalue;
+namespace Code{
+	public class MenuBackgroundAnimation : MonoBehaviour{
+		[SerializeField] private float newXvalue, newYvalue;
 
-	void Update(){
-		transform.position = new Vector3(transform.position.x + newXvalue, transform.position.y + newYvalue, 0);
+		private void Update(){
+			var transform1 = transform;
+			var position = transform1.position;
+			position = new Vector3(position.x + newXvalue, position.y + newYvalue, 0);
+			transform1.position = position;
+		}
 	}
 }

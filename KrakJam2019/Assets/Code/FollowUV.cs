@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class FollowUV : MonoBehaviour{
-	public float parralax = 2f;
+namespace Code{
+	public class FollowUV : MonoBehaviour{
+		public float parralax = 2f;
 
-	void Update(){
-		MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-		Material starfieldMaterial = meshRenderer.material;
-		Vector2 offset = starfieldMaterial.mainTextureOffset;
-		offset.x = transform.position.x / transform.localScale.x / parralax;
-		offset.y = transform.position.y / transform.localScale.y / parralax;
+		private void Update(){
+			var meshRenderer = GetComponent<MeshRenderer>();
+			var starfieldMaterial = meshRenderer.material;
+			var offset = starfieldMaterial.mainTextureOffset;
+			
+			var transform1 = transform;
+			var localScale = transform1.localScale;
+			var position = transform1.position;
+			
+			offset.x = position.x / localScale.x / parralax;
+			offset.y = position.y / localScale.y / parralax;
 
-		starfieldMaterial.mainTextureOffset = offset;
+			starfieldMaterial.mainTextureOffset = offset;
+		}
 	}
 }

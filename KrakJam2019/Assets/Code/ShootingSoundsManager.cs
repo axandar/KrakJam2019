@@ -1,22 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class ShootingSoundsManager : MonoBehaviour
-{
+namespace Code{
+	[RequireComponent(typeof(AudioSource))]
+	public class ShootingSoundsManager : MonoBehaviour{
+		private AudioSource _shootingSoundSource;
 
-    private AudioSource _shootingSoundSource;
+		private void Start(){
+			_shootingSoundSource = GetComponent<AudioSource>();
+		}
 
-    private void Start(){
-        _shootingSoundSource = GetComponent<AudioSource>();
-    }
+		public void PlayShootingSound(){
+			if(_shootingSoundSource.isPlaying){
+				return;
+			}
 
-    public void PlayShootingSound(){
-        Debug.Log("Inside a function");
-        if (_shootingSoundSource.isPlaying ){
-            return;
-        }
-        _shootingSoundSource.Play();
-    }
+			_shootingSoundSource.Play();
+		}
+	}
 }
