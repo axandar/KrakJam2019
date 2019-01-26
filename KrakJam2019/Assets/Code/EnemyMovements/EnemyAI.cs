@@ -18,8 +18,8 @@ namespace Code{
 		private bool _isMoving = true;
 
 		private void Start(){
-			//enemyMovement.GenerateRoute(transform.position, target.position);
-			//nextStep = enemyMovement.GetNextVector();
+			enemyMovement.GenerateRoute(transform.position, target.position);
+			nextStep = enemyMovement.GetNextVector();
 		}
 
 		private void Update(){
