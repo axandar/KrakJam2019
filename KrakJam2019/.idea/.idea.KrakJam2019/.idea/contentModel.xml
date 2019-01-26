@@ -29,6 +29,10 @@
           <e p="RocketShooter.cs" t="Include" />
           <e p="SpaceshipController.cs" t="Include" />
         </e>
+        <e p="Shared" t="Include">
+          <e p="Rainbow.shader" t="Include" />
+          <e p="ShaderTools.cginc" t="Include" />
+        </e>
       </e>
       <e p="KrakJam2019.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
