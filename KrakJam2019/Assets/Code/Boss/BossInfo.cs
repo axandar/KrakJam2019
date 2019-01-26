@@ -26,7 +26,7 @@ public class BossInfo : MonoBehaviour{
       set{
          currentHealth = value;
          if (currentHealth <= 0){
-            _bossRespawner.isAlive = false;
+            _bossRespawner.InvokeRespawnBoss();
             addScore.Invoke(_scoreValue);
             gameObject.SetActive(false);
          }
