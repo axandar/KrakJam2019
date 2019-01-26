@@ -10,6 +10,7 @@ namespace Code.Enemy{
 		[SerializeField] private Vector3 nextStep;
 		[SerializeField] private float speed = 5;
 		[SerializeField] private int scoreValue;
+		[SerializeField] private GameObject explosion;
 		public AddScoreEvent addScore;
 		public float health = 5;
 		private float _currentHealth;
@@ -39,6 +40,10 @@ namespace Code.Enemy{
 			if(_isMoving){
 				MoveEnemy();
 			}else{
+				if(isBomb){
+					Debug.Log("BOOM");
+				}
+
 				Destroy(gameObject);
 			}
 		}
@@ -62,6 +67,7 @@ namespace Code.Enemy{
 		}
 
 		public void DamageMeBoi(int boomBoomValue){
+			Debug.Log("Damage taken");
 			_currentHealth -= boomBoomValue;
 		}
 
@@ -75,6 +81,11 @@ namespace Code.Enemy{
 				controller.HealthPoints -= 10;
 				Destroy(gameObject);
 			}
+		}
+
+		private void OnDisable()
+		{
+			Instantiate(explosion,gameObject.transform.position,Quaternion.identity);
 		}
 
 		[Serializable]

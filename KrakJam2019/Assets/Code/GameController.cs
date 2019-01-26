@@ -6,7 +6,32 @@ using UnityEngine.UI;
 
 namespace Code{
 	public class GameController : MonoBehaviour{
-		public static float PlayerDmg = 1;
+		[SerializeField] Text scoreText;
+		[SerializeField] Text healthText;
+		[SerializeField] Text criticalHealthText;
+		[SerializeField] GameObject gameUI;
+		[SerializeField] GameObject gameOverUI;
+		[SerializeField] GameObject criticalHealthUI;
+		public static float PlayerDMG = 1;
+
+		[SerializeField] GameObject _player;
+		[SerializeField] GameObject _bonusPrefab;
+		[SerializeField] float _timeToSpawn = 15;
+
+		int StopFirstCorutineInduction = 1;
+		GameObject bonus;
+		bool _dontAsk;
+		[Header("Map Sizes")] [SerializeField] float _minVectorXValue;
+		[SerializeField] float _maxVectorXValue;
+		[SerializeField] float _minVectorYValue;
+		[SerializeField] float _maxVectorYValue;
+		[Header("Bonus Values")] [SerializeField]
+		int _healingValues = 10;
+
+		[SerializeField] float _addSpeed = 0.1f;
+		[SerializeField] float _addDMG = 1;
+		bool isPies;
+		private int scoreValue;
 		
 		[SerializeField] private Text scoreText;
 		[SerializeField] private Text healthText;
@@ -98,13 +123,17 @@ namespace Code{
 
 		private IEnumerator SpawnBonus(){
 			while (true) {
+				
 				_dontAsk = true;
 				_stopFirstCoroutineInduction -= 1;
             
-				if (_stopFirstCoroutineInduction <= 0) {
-					_bonus =  Instantiate(bonusPrefab, 
-						new Vector3(Random.Range(minVectorXValue,maxVectorXValue),
-							Random.Range(minVectorYValue,maxVectorYValue))
+				if (StopFirstCorutineInduction <= 0) {
+                
+					float x = Random.Range(0f,1f);
+					float y = Random.Range(0f,1f);
+					
+					bonus =  Instantiate(_bonusPrefab, 
+						Camera.main.ViewportToWorldPoint(new Vector3(x, y, 1))
 						, new Quaternion(0,0,0,0));
 					yield return new WaitForSeconds(timeToSpawn);
 					if (_bonus != null) {
@@ -116,29 +145,36 @@ namespace Code{
 			}
 		}
 
-		private void PickUpBonus(){
+		void PickUpBonus()
+		{
+			shipTransform = gameObject.transform.GetChild(0).transform.position;
 			if(!_dontAsk)
 				return;
-        
-			if(Vector2.Distance(player.transform.position, _bonus.transform.position) <= 1){
+			if(Vector2.Distance(shipTransform, bonus.transform.position) <= 1){
 				PickUp();
-				Destroy(_bonus);
+				
+				Destroy(bonus);
 				_dontAsk = false;
 			}
 		}
 
-		private void PickUp(){
-			var pickUpId = Random.Range(0,2);
+		void PickUp()
+		{
+			var pickUpId = Random.Range(0,3);
+			Debug.Log("pickUpId" +pickUpId);
 			switch (pickUpId) {
 				case 0: //Health
-					healingValues += healingValues;
+					_healingValues += _healingValues;
+					Debug.LogWarning("CollectHeal");
 					break;
 				case 1: //Speed 0.1
-					PlayerController.acceleration += addSpeed;
+					PlayerController.acceleration += _addSpeed;
+					Debug.LogWarning("CollectSpeed");
 					break;
                 
 				case 2: //DMG 0.1
-					PlayerDmg += addDmg;
+					PlayerDMG += _addDMG;
+					Debug.LogWarning("CollectDMG");
 					break;
 			}
 		}

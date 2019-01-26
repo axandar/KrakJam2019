@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5094142423326782847}
   - component: {fileID: 5094142423326782846}
   - component: {fileID: 5094142423326782845}
+  - component: {fileID: 2308228443661634109}
+  - component: {fileID: 1043516049800081974}
   m_Layer: 0
   m_Name: SunEnemy
   m_TagString: Untagged
@@ -26,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5094142423326782844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.857029, y: -0.5572827, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,3 +101,60 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &2308228443661634109
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094142423326782844}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11828303, y: -0.09457302}
+  serializedVersion: 2
+  m_Radius: 2.3246543
+--- !u!114 &1043516049800081974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094142423326782844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc68f385150e0540b491f8a6d35258d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 7031603746388068645, guid: 9ae46584aa6b35346844212648739780, type: 3}
+  _controller: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  enemyMovement: {fileID: 2827563295208027875, guid: d0f64bc06fea2a64e87933725ab1cee5,
+    type: 3}
+  nextStep: {x: 0, y: 0, z: 0}
+  speed: 5
+  isBomb: 1
+  scoreValue: 10
+  explosion: {fileID: 3480823955964553596, guid: 026f2ace836686b49b95b22381a8bd3f,
+    type: 3}
+  addScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+          type: 3}
+        m_MethodName: AddScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Code.Enemy.EnemyAI+AddScoreEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  health: 1
