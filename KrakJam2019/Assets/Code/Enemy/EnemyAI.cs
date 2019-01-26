@@ -20,6 +20,7 @@ namespace Code.Enemy{
 			_currentHealth = health;
 			var movementInstance = Instantiate(enemyMovement);
 			enemyMovement = movementInstance;
+			enemyMovement.transform.parent = gameObject.transform;
 
 			var temp = target.position;
 			enemyMovement.GenerateRoute(transform.position,
