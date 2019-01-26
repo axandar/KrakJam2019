@@ -14,9 +14,7 @@ public class RocketShooter : MonoBehaviour {
 
      bool enableShooting = true;
      
-     void Update()
-     {
-          
+     void Update() {
           ShootRocket();
      }
      
@@ -27,7 +25,7 @@ public class RocketShooter : MonoBehaviour {
                var temporaryRocket = Instantiate(rocket, rocketLauncher.transform.position,
                     rocketLauncher.transform.rotation) as GameObject;
 
-               var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody>();
+               var temporaryRigidbody = temporaryRocket.GetComponent<Rigidbody2D>();
                temporaryRigidbody.AddForce(transform.up * rocketVelocity);
                Invoke(nameof(EnableShooting), shootingDelay);
                if (temporaryRocket != null) {
