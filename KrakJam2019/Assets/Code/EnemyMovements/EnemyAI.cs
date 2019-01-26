@@ -1,5 +1,6 @@
 ﻿using Code.EnemyMovements;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace Code{
 	// ReSharper disable once InconsistentNaming
@@ -10,7 +11,10 @@ namespace Code{
 		[SerializeField] private Vector3 nextStep;
 		[SerializeField] private float speed = 5;
 		[SerializeField] private bool isBomb;
+		public float Health = 5;
 
+		
+		
 		private bool _isMoving = true;
 
 		private void Start(){
@@ -22,6 +26,9 @@ namespace Code{
 			if(!isBomb){
 				//przeciwnicy odwracaja sie w strone gracza
 			}
+			
+			if(Health <= 0)
+				Destroy(gameObject);
 		}
 
 		private void FixedUpdate(){
@@ -51,8 +58,11 @@ namespace Code{
 			return distance < 0.01f;
 		}
 
-		public RespawnArea GetRespawnArea(){
-			return enemyMovement.GetRespawnArea();
+		
+		[ContextMenu("Kill")]
+		private void Kill()
+		{
+			Health -= 5;
 		}
 	}
 }

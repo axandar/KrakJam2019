@@ -16,29 +16,37 @@ public class GameController : MonoBehaviour {
     [SerializeField] GameObject gameOverUI;
     [SerializeField] GameObject criticalHealthUI;
     [SerializeField] GameObject cameraGO;
+    public static float PlayerDMG = 1;
     
     [SerializeField] GameObject _player;
-    
-    //[SerializeField] GameObject _bonusPrefab;
-    [SerializeField] float _timeToSpawn = 15;
+    [SerializeField] GameObject _bonusPrefab;
+    [SerializeField] private float _timeToSpawn = 15;
 
-    int StopFirstCorutineInduction = 1;
-    
+    private int StopFirstCorutineInduction = 1;
+    private GameObject bonus;
+    private bool _dontAsk;
+
     [Header("Map Sizes")] 
-    [SerializeField]
-    float _minVectorXValue;
-    [SerializeField] float _maxVectorXValue;
-    [SerializeField] float _minVectorYValue;
-    [SerializeField] float _maxVectorYValue;
+    [SerializeField] private float _minVectorXValue;
+    [SerializeField] private float _maxVectorXValue;
+    [SerializeField] private float _minVectorYValue;
+    [SerializeField] private float _maxVectorYValue;
     
-    int scoreValue;
-    [SerializeField] int healthValue;
+    [Header("Bonus Values")]
+    [SerializeField] private int _healingValues = 10;
+    [SerializeField] private float _addSpeed = 0.1f;
+    [SerializeField] private float _addDMG = 1;
+
+
+     int scoreValue;
+     [SerializeField] int healthValue;
     bool isPies;
 
-    void Awake() {
-//        StartCoroutine(SpawnBonus());
+    private void Awake()
+    {
+        StartCoroutine(SpawnBonus());
     }
-    
+
     void Start() {
         gameUI.SetActive(true);
         gameOverUI.SetActive(false);
@@ -48,16 +56,17 @@ public class GameController : MonoBehaviour {
     void Update() {
         scoreText.text = "Score: " + scoreValue;
         healthText.text = "Health: " + healthValue;
-
+        
         if (Input.GetKey(KeyCode.K))
             healthValue = healthValue - 10;
-        
+
         if (healthValue <= 0)
             GameOver();
 
         HealthIndicator();
+        
+        PickUpBonus();
     }
-
     void HealthIndicator() {
         if (healthValue > 50)
             healthText.color = Color.green;
@@ -69,7 +78,6 @@ public class GameController : MonoBehaviour {
             StartCoroutine(FlashCriticalHealthUI());
         }
     }
-
     IEnumerator FlashCriticalHealthUI() {
         while (true) {
             criticalHealthUI.SetActive(true);
@@ -89,41 +97,54 @@ public class GameController : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-//    IEnumerator SpawnBonus()
-//    {
-//        while (true) {
-//            StopFirstCorutineInduction -= 1;
-//            
-//            if (StopFirstCorutineInduction <= 0) {
-//                
-//                var bonus =  Instantiate(_bonusPrefab, 
-//                    new Vector3(Random.Range(_minVectorXValue,_maxVectorXValue),
-//                        Random.Range(_minVectorYValue,_maxVectorYValue))
-//                    , new Quaternion(0,0,0,0));
-//                yield return new WaitForSeconds(_timeToSpawn);
-//                if(bonus != null)
-//                   Destroy(bonus);
-//                yield return new  WaitForSeconds(_timeToSpawn);
-//            }
-//        }
-//    }
-
-    void PickUpBonus() {
-     //   if(_player.transform == )
+    private IEnumerator SpawnBonus()
+    {
+        while (true) {
+            _dontAsk = true;
+            StopFirstCorutineInduction -= 1;
+            
+            if (StopFirstCorutineInduction <= 0) {
+                
+                bonus =  Instantiate(_bonusPrefab, 
+                    new Vector3(Random.Range(_minVectorXValue,_maxVectorXValue),
+                        Random.Range(_minVectorYValue,_maxVectorYValue))
+                    , new Quaternion(0,0,0,0));
+                yield return new WaitForSeconds(_timeToSpawn);
+                if (bonus != null) {
+                    _dontAsk = false;
+                    Destroy(bonus);
+                }
+                yield return new  WaitForSeconds(_timeToSpawn);
+            }
+        }
     }
 
-    void PickUp() {
+    private void PickUpBonus()
+    {
+        if(!_dontAsk)
+            return;
+        
+            if(Vector2.Distance(_player.transform.position, bonus.transform.position) <= 1){
+            PickUp();
+            Destroy(bonus);
+            _dontAsk = false;
+        }
+    }
+    
+    private void PickUp()
+    {
         var pickUpId = Random.Range(0,2);
+        Debug.Log(pickUpId);
         switch (pickUpId) {
                 case 0: //Health
-                    
+                    healthValue += _healingValues;
                     break;
-                case 1: //Speed
-                    
+                case 1: //Speed 0.1
+                    PlayerController.acceleration += _addSpeed;
                     break;
                 
-                case 2: //DMG
-                    
+                case 2: //DMG 0.1
+                    PlayerDMG += _addDMG;
                     break;
         }
     }
