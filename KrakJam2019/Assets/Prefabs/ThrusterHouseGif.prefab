@@ -547,10 +547,9 @@ MonoBehaviour:
     type: 3}
   rocket03: {fileID: 9150772794876812902, guid: 89865d8c0465b644194361358e717bbe,
     type: 3}
-  rocket: {fileID: 9150772794876812902, guid: 89865d8c0465b644194361358e717bbe, type: 3}
   rocketVelocity: 1000
   rocketTimer: 5
-  shootingDelay: 0.1
+  delayBetweenShoots: 0.1
   boomBoomValue: 1
   isShootingDisabled: 0
 --- !u!61 &7652451855705078262
