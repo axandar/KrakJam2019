@@ -395,6 +395,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFlash: {fileID: 1364822076}
   enemyFlash: {fileID: 1117022898}
+  camTransform: {fileID: 2021946531}
+  shakeDuration: 2
+  shakeAmount: 5
+  decreaseFactor: 1
 --- !u!1 &1364822074
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +448,12 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!4 &2021946531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6060857754450281588, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 3761752866256591798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2128326850 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6060857754555351061, guid: cdcaf005d2f217c41943d99e0e14c1ad,
@@ -517,5 +527,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: _healthPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864719739922785695, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: enemyBombPrefab
+      value: 
+      objectReference: {fileID: 5094142423326782844, guid: 252a9cba2cf0bf74594336907ac0dedc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdcaf005d2f217c41943d99e0e14c1ad, type: 3}

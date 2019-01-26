@@ -12,6 +12,7 @@ namespace Code.Enemy{
 		[SerializeField] private float speed = 5;
 		[SerializeField] private bool isBomb;
 		[SerializeField] private int scoreValue;
+		[SerializeField] private GameObject explosion;
 		public AddScoreEvent addScore;
 		public float health = 5;
 		private float _currentHealth;
@@ -44,7 +45,7 @@ namespace Code.Enemy{
 				if(isBomb){
 					Debug.Log("BOOM");
 				}
-
+				Instantiate(explosion);
 				Destroy(gameObject);
 			}
 		}
