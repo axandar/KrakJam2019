@@ -17,8 +17,7 @@ public class BossInfo : MonoBehaviour{
    public AddScoreEvent addScore;
 
 
-   private void OnEnable()
-   {
+   private void OnEnable(){
       CurrentHealth = _health;
    }
 
