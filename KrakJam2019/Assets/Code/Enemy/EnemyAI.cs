@@ -1,45 +1,50 @@
-﻿using Code.EnemyMovements;
-using UnityEngine;
-using UnityEngine.Analytics;
+﻿using UnityEngine;
 
-namespace Code{
+namespace Code.Enemy{
 	// ReSharper disable once InconsistentNaming
 	public class EnemyAI : MonoBehaviour{
 		public Transform target;
 
-		[SerializeField] EnemyMovement enemyMovement;
-		[SerializeField] Vector3 nextStep;
-		[SerializeField] float speed = 5;
-		[SerializeField] bool isBomb;
-		public float Health = 5;
+		[SerializeField] private EnemyMovement enemyMovement;
+		[SerializeField] private Vector3 nextStep;
+		[SerializeField] private float speed = 5;
+		[SerializeField] private bool isBomb;
+		public float health = 5;
 
+		private bool _isMoving = true;
 
-		bool _isMoving = true;
-
-		void Start(){
-			enemyMovement.GenerateRoute(transform.position, target.position);
+		private void Start(){
+			var movementInstance = Instantiate(enemyMovement);
+			enemyMovement = movementInstance;
+			
+			var temp = target.position;
+			enemyMovement.GenerateRoute(transform.position, 
+				new Vector3(temp.x, temp.y, temp.z));
 			nextStep = enemyMovement.GetNextVector();
 		}
 
-		void Update(){
+		private void Update(){
 			if(!isBomb){
 				//przeciwnicy odwracaja sie w strone gracza
 			}
-			
-			if(Health <= 0)
-				Destroy(gameObject);
-		}
 
-		void FixedUpdate(){
-			if(_isMoving){
-				MoveEnemy();
-			}else if(isBomb){
-				Debug.Log("BOOM");
+			if(health <= 0){
 				Destroy(gameObject);
 			}
 		}
 
-		void MoveEnemy(){
+		private void FixedUpdate(){
+			if(_isMoving){
+				MoveEnemy();
+			}else{
+				if(isBomb){
+					Debug.Log("BOOM");
+				}
+				Destroy(gameObject);
+			}
+		}
+
+		private void MoveEnemy(){
 			if(IsInNextStep()){
 				if(enemyMovement.IsNextVector()){
 					nextStep = enemyMovement.GetNextVector();
@@ -49,10 +54,11 @@ namespace Code{
 			}
 
 			var step = speed * Time.deltaTime;
+			//Debug.Log(nextStep);
 			transform.position = Vector3.MoveTowards(transform.position, nextStep, step);
 		}
 
-		bool IsInNextStep(){
+		private bool IsInNextStep(){
 			var distance = Vector3.Distance(transform.position, nextStep);
 			return distance < 0.01f;
 		}
@@ -62,9 +68,8 @@ namespace Code{
 		}
 		
 		[ContextMenu("Kill")]
-		void Kill()
-		{
-			Health -= 5;
+		private void Kill(){
+			health -= health;
 		}
 	}
 }
