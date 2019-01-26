@@ -10,8 +10,7 @@ public class BossAI : MonoBehaviour
     private void Start(){
         _bossInfo = GetComponent<BossInfo>();
     }
-
-
+    
     private void DamageRecieved(int damageTaken){
         _bossInfo.CurrentHealth -= damageTaken;
     }

@@ -8,27 +8,17 @@ public class BossRespawner : MonoBehaviour
     [SerializeField] private Transform _bossRespawnTransform;
     [SerializeField] private GameObject _boss;
     
-    public bool isAlive;
     
-    private void Start(){
-        StartCoroutine(RespawnBossInTime());
-        
-    }
+    
 
     private void RespawnBoss()
     {
         _boss.transform.position = _bossRespawnTransform.position;
         _boss.SetActive(true);
     }
-    
 
-    IEnumerator RespawnBossInTime(){
-        while (true){
-            if (!isAlive){
-                yield return new WaitForSeconds(_bossRespawnTimer);
-                isAlive = true;
-                RespawnBoss();
-            }
-        }
+
+    public void InvokeRespawnBoss(){
+        Invoke("RespawnBoss",_bossRespawnTimer);
     }
 }
