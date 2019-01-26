@@ -1,65 +1,66 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour{
-	Rigidbody2D _rb;
-	float _xAxis;
-	float _yAxis;
+namespace Code{
+	public class PlayerController : MonoBehaviour{
+		private Rigidbody2D _rb;
+		private float _xAxis;
+		private float _yAxis;
 
 
-	[SerializeField] float timeToStop = 0.01f;
-	[SerializeField] float _maxVelocity = 3;
-	[SerializeField] float _rotationSpeed = 2;
+		[SerializeField] private float timeToStop = 0.01f;
+		[SerializeField] private float maxVelocity = 3;
+		[SerializeField] private float rotationSpeed = 2;
 
-	public static float acceleration = 5;
+		public static float Acceleration = 5;
 
-	void Start(){
-		_rb = GetComponent<Rigidbody2D>();
-	}
-
-	void Update(){
-		_xAxis = Input.GetAxis("Vertical");
-		_yAxis = Input.GetAxis("Horizontal");
-		GetInput();
-	}
-
-
-	void GetInput(){
-		if(Input.GetKey(KeyCode.W)){
-			MoveForvard(_xAxis * acceleration);
+		private void Start(){
+			_rb = GetComponent<Rigidbody2D>();
 		}
 
-		if(!Input.GetKey(KeyCode.W)){
-			if(_rb.velocity.magnitude != 0){
-				_rb.velocity = Vector2.Lerp(_rb.velocity, Vector2.zero, timeToStop);
+		private void Update(){
+			_xAxis = Input.GetAxis("Vertical");
+			_yAxis = Input.GetAxis("Horizontal");
+			GetInput();
+		}
+
+
+		private void GetInput(){
+			if(Input.GetKey(KeyCode.W)){
+				MoveForvard(_xAxis * Acceleration);
 			}
+
+			if(!Input.GetKey(KeyCode.W)){
+				if(Math.Abs(_rb.velocity.magnitude) > 0.001f){
+					_rb.velocity = Vector2.Lerp(_rb.velocity, Vector2.zero, timeToStop);
+				}
+			}
+
+			if(Input.GetKey(KeyCode.A)){
+				Rotate(transform, rotationSpeed);
+			}
+
+			if(Input.GetKey(KeyCode.D)){
+				Rotate(transform, -rotationSpeed);
+			}
+
+			// ClampVelocity();
 		}
 
-		if(Input.GetKey(KeyCode.A)){
-			Rotate(transform, _rotationSpeed);
+		void ClampVelocity(){
+			var x = Mathf.Clamp(_rb.velocity.x, -maxVelocity, maxVelocity);
+			var y = Mathf.Clamp(_rb.velocity.y, -maxVelocity, maxVelocity);
+
+			_rb.velocity = new Vector2(x, y);
 		}
 
-		if(Input.GetKey(KeyCode.D)){
-			Rotate(transform, -_rotationSpeed);
+		private void MoveForvard(float amount){
+			Vector2 force = transform.up * amount;
+			_rb.AddForce(force);
 		}
 
-		// ClampVelocity();
-	}
-
-	void ClampVelocity(){
-		float x = Mathf.Clamp(_rb.velocity.x, -_maxVelocity, _maxVelocity);
-		float y = Mathf.Clamp(_rb.velocity.y, -_maxVelocity, _maxVelocity);
-
-		_rb.velocity = new Vector2(x, y);
-	}
-
-	void MoveForvard(float amount){
-		Vector2 force = transform.up * amount;
-		_rb.AddForce(force);
-	}
-
-	void Rotate(Transform t, float amount){
-		t.Rotate(0, 0, amount);
+		static void Rotate(Transform t, float amount){
+			t.Rotate(0, 0, amount);
+		}
 	}
 }

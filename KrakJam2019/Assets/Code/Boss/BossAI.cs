@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Code.Boss;
 using UnityEngine;
 
 public class BossAI : MonoBehaviour

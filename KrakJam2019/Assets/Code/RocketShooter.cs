@@ -3,33 +3,32 @@ using UnityEngine;
 
 namespace Code{
 	public class RocketShooter : MonoBehaviour{
-		[SerializeField] GameObject rocketLauncher;
-		[SerializeField] GameObject rocket01;
-		[SerializeField] GameObject rocket02;
-		[SerializeField] GameObject rocket03;
+		[SerializeField] private GameObject rocketLauncher;
+		[SerializeField] private GameObject rocket01;
+		[SerializeField] private GameObject rocket02;
+		[SerializeField] private GameObject rocket03;
 
-		[SerializeField] float rocketVelocity;
-		[SerializeField] float rocketTimer;
+		[SerializeField] private float rocketVelocity;
+		[SerializeField] private float rocketTimer;
 		[SerializeField] private float delayBetweenShoots;
-
-		[SerializeField] private ShootingSoundsManager _shootingSoundsManager;
+		[SerializeField] private ShootingSoundsManager shootingSoundsManager;
 
 		public int boomBoomValue;
 		public bool isShootingDisabled;
 
-		private float timeFromLastShoot = 0;
+		private float _timeFromLastShoot;
 
-		void Update(){
-			if(!isShootingDisabled && Input.GetMouseButton(0) && timeFromLastShoot >= delayBetweenShoots){
-				_shootingSoundsManager.PlayShootingSound();
+		private void Update(){
+			if(!isShootingDisabled && Input.GetMouseButton(0) && _timeFromLastShoot >= delayBetweenShoots){
+				shootingSoundsManager.PlayShootingSound();
 				ShootRocket();
-				timeFromLastShoot = 0;
+				_timeFromLastShoot = 0;
 			}else{
-				timeFromLastShoot += Time.deltaTime;
+				_timeFromLastShoot += Time.deltaTime;
 			}
 		}
 
-		void ShootRocket(){
+		private void ShootRocket(){
 			if(rocketLauncher == null){
 				return;
 			}
@@ -42,9 +41,8 @@ namespace Code{
 			Destroy(temporaryRocket, rocketTimer);
 		}
 
-		void OnCollisionEnter2D(Collision2D other){
+		private void OnCollisionEnter2D(Collision2D other){
 			if(other.gameObject.CompareTag("Enemy")){
-				Debug.Log("EmemyGetDAMAGE");
 				other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
 			}
 		}
