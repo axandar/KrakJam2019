@@ -34,6 +34,7 @@
           <e p="RocketShooter.cs" t="Include" />
           <e p="SpaceshipController.cs" t="Include" />
         </e>
+        <e p="ScreenFlash.cs" t="Include" />
         <e p="Shared" t="Include">
           <e p="Rainbow.shader" t="Include" />
           <e p="ShaderTools.cginc" t="Include" />
