@@ -5,6 +5,6 @@ using UnityEngine;
 public class AnimationAutoDestroy : MonoBehaviour
 {
    public void DestroyThisObject(){
-      gameObject.SetActive(false);
+      Destroy(gameObject);
    }
 }

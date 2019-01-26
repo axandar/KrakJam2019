@@ -13,6 +13,7 @@ public class ShootingSoundsManager : MonoBehaviour
     }
 
     public void PlayShootingSound(){
+        Debug.Log("Inside a function");
         if (_shootingSoundSource.isPlaying ){
             return;
         }
