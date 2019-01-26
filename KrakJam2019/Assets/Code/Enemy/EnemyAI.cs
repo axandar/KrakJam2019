@@ -75,15 +75,12 @@ namespace Code.Enemy{
 			return enemyMovement.GetRespawnArea();
 		}
 
-		[ContextMenu("Kill")]
-		private void Kill(){
-			health -= health;
-		}
-
 
 		private void OnCollisionEnter2D(Collision2D other){
-			_controller.HealthPoints -= 10;
-			Destroy(gameObject);
+			if(other.gameObject.CompareTag("Player")){
+				_controller.HealthPoints -= 10;
+				Destroy(gameObject);
+			}
 		}
 
 		[Serializable]

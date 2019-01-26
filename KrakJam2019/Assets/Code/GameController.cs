@@ -38,10 +38,8 @@ namespace Code{
 			get { return _healthPoints; }
 			set{
 				_healthPoints = value;
-				Debug.Log(_healthPoints);
 			}
 		}
-
 
 		void Awake(){
 			StartCoroutine(SpawnBonus());
@@ -54,16 +52,18 @@ namespace Code{
 		}
 
 		void Update() {
+			Debug.Log("ScoreValues: " + scoreValue);
 			scoreText.text = "Score: " + scoreValue;
 			healthText.text = "Health: " + HealthPoints;
-			if (Input.GetKeyDown(KeyCode.K))
+			if(Input.GetKeyDown(KeyCode.K)){
 				HealthPoints = HealthPoints - 10;
-			Debug.Log(HealthPoints);	
-			if (HealthPoints <= 0)
-				GameOver();
+			}
 
+			if(HealthPoints <= 0){
+				GameOver();
+			}
+			
 			HealthIndicator();
-        
 			PickUpBonus();
 		}
 
@@ -94,12 +94,12 @@ namespace Code{
 			Destroy(criticalHealthUI);
 			gameUI.SetActive(false);
 			gameOverUI.SetActive(true);
-			if(Input.GetKeyDown(KeyCode.R))
+			if(Input.GetKeyDown(KeyCode.R)){
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			}
 		}
 
-		IEnumerator SpawnBonus()
-		{
+		IEnumerator SpawnBonus(){
 			while (true) {
 				_dontAsk = true;
 				StopFirstCorutineInduction -= 1;
@@ -120,8 +120,7 @@ namespace Code{
 			}
 		}
 
-		void PickUpBonus()
-		{
+		void PickUpBonus(){
 			if(!_dontAsk)
 				return;
         
@@ -135,7 +134,6 @@ namespace Code{
 		void PickUp()
 		{
 			var pickUpId = Random.Range(0,2);
-			Debug.Log(pickUpId);
 			switch (pickUpId) {
 				case 0: //Health
 					_healingValues += _healingValues;
@@ -152,7 +150,6 @@ namespace Code{
 
 		public void AddScore(int scoreToAdd){
 			scoreValue += scoreToAdd;
-			Debug.Log(scoreValue);
 		}
 	}
 }
