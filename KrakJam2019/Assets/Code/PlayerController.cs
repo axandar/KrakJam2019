@@ -3,29 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour{
-	private Rigidbody2D _rb;
-	private float _xAxis;
-	private float _yAxis;
+	Rigidbody2D _rb;
+	float _xAxis;
+	float _yAxis;
 
 
-	[SerializeField] private float timeToStop = 0.01f;
-	[SerializeField] private float _maxVelocity = 3;
-	[SerializeField] private float _rotationSpeed = 2;
+	[SerializeField] float timeToStop = 0.01f;
+	[SerializeField] float _maxVelocity = 3;
+	[SerializeField] float _rotationSpeed = 2;
 
-	public static float acceleration = 1;
+	public static float acceleration = 5;
 
-	private void Start(){
+	void Start(){
 		_rb = GetComponent<Rigidbody2D>();
 	}
 
-	private void Update(){
+	void Update(){
 		_xAxis = Input.GetAxis("Vertical");
 		_yAxis = Input.GetAxis("Horizontal");
 		GetInput();
 	}
 
 
-	private void GetInput(){
+	void GetInput(){
 		if(Input.GetKey(KeyCode.W)){
 			MoveForvard(_xAxis * acceleration);
 		}
@@ -47,19 +47,19 @@ public class PlayerController : MonoBehaviour{
 		// ClampVelocity();
 	}
 
-	private void ClampVelocity(){
+	void ClampVelocity(){
 		float x = Mathf.Clamp(_rb.velocity.x, -_maxVelocity, _maxVelocity);
 		float y = Mathf.Clamp(_rb.velocity.y, -_maxVelocity, _maxVelocity);
 
 		_rb.velocity = new Vector2(x, y);
 	}
 
-	private void MoveForvard(float amount){
+	void MoveForvard(float amount){
 		Vector2 force = transform.up * amount;
 		_rb.AddForce(force);
 	}
 
-	private void Rotate(Transform t, float amount){
+	void Rotate(Transform t, float amount){
 		t.Rotate(0, 0, amount);
 	}
 }

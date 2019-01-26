@@ -52,10 +52,6 @@ namespace Code{
 			scoreText.text = "Score: " + scoreValue;
 			healthText.text = "Health: " + healthValue;
 
-			if (Input.GetKey(KeyCode.K)) {
-				healthValue = healthValue - 10;
-				scoreValue = scoreValue + 100;
-			}
 
 			if (healthValue <= 0)
 				GameOver();

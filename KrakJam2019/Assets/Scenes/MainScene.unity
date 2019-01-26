@@ -1709,6 +1709,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7031603746388068643, guid: 9ae46584aa6b35346844212648739780,
+        type: 3}
+      propertyPath: _maxVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031603746388068643, guid: 9ae46584aa6b35346844212648739780,
+        type: 3}
+      propertyPath: _rotationSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7031603746388068644, guid: 9ae46584aa6b35346844212648739780,
         type: 3}
       propertyPath: jakisTamTransform
@@ -1718,6 +1728,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shootingDelay
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031603746388068647, guid: 9ae46584aa6b35346844212648739780,
+        type: 3}
+      propertyPath: rocketVelocity
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae46584aa6b35346844212648739780, type: 3}
