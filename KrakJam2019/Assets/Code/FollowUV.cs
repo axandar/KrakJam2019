@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowUV : MonoBehaviour {
-
+public class FollowUV : MonoBehaviour{
 	public float parralax = 2f;
 
-	void Update () {
+	void Update(){
 		MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
 		Material starfieldMaterial = meshRenderer.material;
 		Vector2 offset = starfieldMaterial.mainTextureOffset;

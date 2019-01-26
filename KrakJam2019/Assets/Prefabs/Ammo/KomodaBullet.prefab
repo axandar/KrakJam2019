@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9150772794876812907}
   - component: {fileID: 9150772794876812904}
   - component: {fileID: 9150772794876812905}
+  - component: {fileID: 8448637827590068473}
+  - component: {fileID: 6223949503036717293}
   m_Layer: 0
   m_Name: KomodaBullet
   m_TagString: Untagged
@@ -118,3 +120,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &8448637827590068473
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150772794876812902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.07}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.58, y: 0.48}
+  m_EdgeRadius: 0
+--- !u!114 &6223949503036717293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150772794876812902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53e3086e6da6494d8f8a040b75e2917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocketLauncher: {fileID: 0}
+  rocket01: {fileID: 1394349801221292011, guid: da7914fa74005ad45880a82e134cb2cc,
+    type: 3}
+  rocket02: {fileID: 1628722902339167978, guid: 82c8191e0014be344bdf282219ad13cb,
+    type: 3}
+  rocket03: {fileID: 9150772794876812902}
+  rocket: {fileID: 1394349801221292011, guid: da7914fa74005ad45880a82e134cb2cc, type: 3}
+  rocketVelocity: 700
+  rocketTimer: 5
+  shootingDelay: 0.1
+  boomBoomValue: 1
+  isShootingDisabled: 0
