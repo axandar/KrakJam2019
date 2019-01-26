@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Code.Enemy{
@@ -10,7 +11,8 @@ namespace Code.Enemy{
 		[SerializeField] private Vector3 nextStep;
 		[SerializeField] private float speed = 5;
 		[SerializeField] private bool isBomb;
-		[SerializeField] private UnityAction<int> addScore;
+		[SerializeField] private int scoreValue;
+		public AddScoreEvent addScore;
 		public float health = 5;
 
 		private bool _isMoving = true;
@@ -31,6 +33,7 @@ namespace Code.Enemy{
 			}
 
 			if(health <= 0){
+				addScore.Invoke(scoreValue);
 				Destroy(gameObject);
 			}
 		}
@@ -74,4 +77,7 @@ namespace Code.Enemy{
 			health -= health;
 		}
 	}
+	
+	[Serializable]
+	public class AddScoreEvent : UnityEvent<int>{}
 }
