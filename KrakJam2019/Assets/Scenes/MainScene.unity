@@ -580,6 +580,12 @@ PrefabInstance:
       propertyPath: minIntervalInMillis
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6864719739922785695, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: enemyBombPrefab
+      value: 
+      objectReference: {fileID: 8178288965933125102, guid: 9454afdb28dd86b478db436779f9e394,
+        type: 3}
     - target: {fileID: 3761752867492340222, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: m_TagString
