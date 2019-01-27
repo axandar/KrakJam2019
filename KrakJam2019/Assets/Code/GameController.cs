@@ -33,7 +33,6 @@ namespace Code{
 			get => healthPoints;
 			set{
 				healthPoints = value;
-				Debug.Log("PlayerGetHit");
 				Events.BroadcastStartShake(1 ,0.8f);
 			}
 		}
@@ -132,7 +131,6 @@ namespace Code{
 
 		private void PickUp(){
 			var pickUpId = Random.Range(0,3);
-			Debug.Log("pickUpId" +pickUpId);
 			switch (pickUpId) {
 				case 0: //Health
 					healingValues += healingValues;

@@ -30,7 +30,6 @@ namespace Code.Enemy{
 
 		private void Update(){
 			if(_currentHealth <= 0){
-				Debug.Log("Invoked function");
 				addScore.Invoke(scoreValue);
 				Destroy(gameObject);
 			}
@@ -63,7 +62,6 @@ namespace Code.Enemy{
 		}
 
 		public void DamageMeBoi(int boomBoomValue){
-			Debug.Log("Damage taken");
 			Events.BroadcastStartShake(0.4f,0.02f);
 			_currentHealth -= boomBoomValue;
 		}
