@@ -169,6 +169,8 @@ MonoBehaviour:
   rocketTimer: 5
   delayBetweenShoots: 0
   shootingSoundsManager: {fileID: 0}
+  enemyFlash: {fileID: 8381414014552947511, guid: 2a5b43b0dd0e14c42a4286e2ff096306,
+    type: 3}
   boomBoomValue: 1
   isShootingDisabled: 1
 --- !u!1 &2714149889155497540
