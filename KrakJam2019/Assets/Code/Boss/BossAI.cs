@@ -1,119 +1,109 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using Code;
-using Code.Boss;
+using Code.Enemy;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class BossAI : MonoBehaviour
-{
-    [SerializeField] private float _speed;
-    [SerializeField] private Camera gameCamera;
-    [SerializeField] private Transform _playerTransform;
-    [SerializeField] private float _minDistanceToPlayer;
-    [SerializeField] private float _maxDistanceToPlayer;
-    [SerializeField] private Transform _strifeRightSide;
-    [SerializeField] private Transform _strifeLeftSide;
-    [SerializeField] private List<GameObject> _bullets;
-    [SerializeField] private float reload;
-    [SerializeField] private int dmgPerBullet;
-    
-    private Vector3 position;
-    private bool maxPosition = true;
-    private bool goingRight = true;
-    private bool firing;
-    
-    private BossInfo _bossInfo;
+namespace Code.Boss{
+	public class BossAI : MonoBehaviour{
+		public Camera gameCamera;
+		public Transform playerTransform;
+		public Transform strifeRightSide;
+		public Transform strifeLeftSide;
+		
+		[SerializeField] private float speed;
+		[SerializeField] private float minDistanceToPlayer;
+		[SerializeField] private float maxDistanceToPlayer;
+		[SerializeField] private List<GameObject> bullets;
+		[SerializeField] private float reload;
+		[SerializeField] private int dmgPerBullet;
+		[SerializeField] private int bulletSpeed = 10;
+		[SerializeField] private Vector3 inCameraSpawnVector = new Vector3(0.5f, 0.9f, 1f);
+		
+		private bool _goingRight = true;
+		private BossInfo _bossInfo;
 
+		private void Start(){
+			_bossInfo = GetComponent<BossInfo>();
+			StartCoroutine(ShootThePlayer());
+		}
 
-    private void OnEnable()
-    {
-        firing = true;
-    }
+		public void MoveBossToFirstPosition(){
+			transform.position = gameCamera.ViewportToWorldPoint(inCameraSpawnVector);
+		}
 
-    private void Start(){
-        
-        _bossInfo = GetComponent<BossInfo>();
-        position = transform.position;
-    }
+		private void FixedUpdate(){
+			var distanceToPlayer = CalculateDistanceToPlayer();
+			
+			if(distanceToPlayer < maxDistanceToPlayer &&
+			   distanceToPlayer > minDistanceToPlayer){
+				StrifeNearPlayer();
+			}else if(distanceToPlayer > minDistanceToPlayer){
+				MoveToPlayer();
+			}
+		}
 
-    private void FixedUpdate()
-    {
-        if (CalculateDistanceToPlayer() < _maxDistanceToPlayer &&
-            CalculateDistanceToPlayer() > _minDistanceToPlayer){
-            StrifeNearPlayer();
-        }else MoveToPlayer();
-        
-    }
+		private void DamageReceived(int damageTaken){
+			_bossInfo.CurrentHealth -= damageTaken;
+		}
 
-    private void DamageRecieved(int damageTaken){
-        _bossInfo.CurrentHealth -= damageTaken;
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other){
-        if(other.gameObject.CompareTag("Bullet")){
-            DamageRecieved(dmgPerBullet);
-            Destroy(other.gameObject);
-        }
-    }
+		private void OnCollisionEnter2D(Collision2D other){
+			if(other.gameObject.CompareTag("Bullet")){
+				DamageReceived(dmgPerBullet);
+				Destroy(other.gameObject);
+			}
+		}
 
+		private void MoveToPlayer(){
+			var step = speed * Time.deltaTime;
+			transform.position = 
+				Vector3.MoveTowards(transform.position, playerTransform.position, step);
+		}
 
-    private void MoveToPlayer(){
-        var step = _speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, _playerTransform.position, step);
-    }
+		private void StrifeNearPlayer(){
+			var step = speed * Time.deltaTime;
+			if(_goingRight){
+				if(IsNearRightWall()){
+					_goingRight = false;
+				} else{
+					transform.position = 
+						Vector3.MoveTowards(transform.position, strifeRightSide.position, step);
+				}
+			}else if(IsNearLeftWall()){
+				_goingRight = true;
+			}else{
+				transform.position = 
+					Vector3.MoveTowards(transform.position, strifeLeftSide.position, step);
+			}
+		}
 
-    private void StrifeNearPlayer(){
-        var step = _speed * Time.deltaTime;
-        if (goingRight){
-            if (IsNearRightWall()){
-                goingRight = false;
-            }else{
-                Debug.Log("Going Right Direction");
-                transform.position = Vector3.MoveTowards(transform.position, _strifeRightSide.position, step);
-            }
-        }else if (IsNearLeftWall()){
-            goingRight = true;
-        }else
-        {transform.position = Vector3.MoveTowards(transform.position, _strifeLeftSide.position, step);}
-        
-       
-        if (firing){
-          StartCoroutine(ShootThePlayer());
-            
-        }
-    }
-    private bool IsNearRightWall(){
-        if (Vector3.Distance(transform.position,_strifeRightSide.position) < 10.0f){
-            return true;
-        }
-            return false;
-    }
-    private bool IsNearLeftWall(){
-        if (Vector3.Distance(transform.position,_strifeLeftSide.position) < 10.0f){
-            return true;
-        }
-            return false;
-    }
+		private bool IsNearRightWall(){
+			return Vector3.Distance(transform.position, strifeRightSide.position) < 10.0f;
+		}
+
+		private bool IsNearLeftWall(){
+			return Vector3.Distance(transform.position, strifeLeftSide.position) < 10.0f;
+		}
 
 
-   
-    private float CalculateDistanceToPlayer(){
-        var heading = transform.position - _playerTransform.position;
-        var distance = heading.magnitude;
-//        Debug.Log(transform.position);
-//        Debug.Log(_playerTransform.position);
-//        Debug.Log(heading);
-//        Debug.Log(distance);
-        return distance;
-    }
+		private float CalculateDistanceToPlayer(){
+			return Vector3.Distance(transform.position, playerTransform.position);
+		}
 
 
-
-    IEnumerator ShootThePlayer()
-    {
-        firing = false;
-        yield return new WaitForSeconds(reload);
-        Instantiate(_bullets[Random.Range(0, _bullets.Count)],transform.position,Quaternion.identity);
-        firing = true;
-    }
+		private IEnumerator ShootThePlayer(){
+			while(true){
+				var enemyToShoot = bullets[Random.Range(0, bullets.Count)];
+			
+				var enemy = Instantiate(enemyToShoot);
+				var enemyAi = enemy.GetComponent<EnemyAI>();
+				enemyAi.speed = bulletSpeed;
+				enemyAi.target = playerTransform;
+				enemy.transform.position = transform.position;
+			
+				yield return new WaitForSeconds(reload);
+			}
+		}
+	}
 }

@@ -5,33 +5,26 @@ using UnityEngine.Events;
 
 namespace Code.Boss{
 	public class BossInfo : MonoBehaviour{
-		private float currentHealth;
-		
+		public AmbientMusicManager musicManager;		
+		public BossDeathEvent bossDeathEvent;
+
 		[SerializeField] private float health;
 		[SerializeField] private int scoreValue;
-		[SerializeField] private BossRespawner bossRespawner;
-		[SerializeField] private AmbientMusicManager musicManager;
 		
-		public EnemyAI.AddScoreEvent addScore;
-
-
-		private void OnEnable(){
+		public void PrepareBoss(){
 			CurrentHealth = health;
-//			bossRespawner.InvokeRespawnBoss();
 			if (musicManager != null){
 				musicManager.StopAmbientMusic();
 			}
 		}
 
 		public float CurrentHealth{
-			get => currentHealth;
+			get => health;
 			set{
-				currentHealth = value;
-				if(currentHealth <= 0){
-					bossRespawner.InvokeRespawnBoss();
-					addScore.Invoke(scoreValue);
-
-					gameObject.SetActive(false);
+				health = value;
+				if(health <= 0){
+					bossDeathEvent.Invoke(scoreValue);
+					Destroy(gameObject);
 				}
 			}
 		}
@@ -39,5 +32,8 @@ namespace Code.Boss{
 		private void OnDisable(){
 			musicManager.StartAmbientMusic();
 		}
+		
+		[Serializable]
+		public class BossDeathEvent : UnityEvent<int> { }
 	}
 }
