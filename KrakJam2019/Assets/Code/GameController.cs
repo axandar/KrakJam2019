@@ -41,7 +41,9 @@ namespace Code{
 			StartCoroutine(SpawnBonus());
 		}
 
-		private void Start(){
+		private void Start()
+		{
+			Time.timeScale = 1;
 			gameUi.SetActive(true);
 			gameOverUi.SetActive(false);
 			criticalHealthUi.SetActive(false);
@@ -89,6 +91,7 @@ namespace Code{
 			Destroy(criticalHealthUi);
 			gameUi.SetActive(false);
 			gameOverUi.SetActive(true);
+			Time.timeScale = 0;
 			if(Input.GetKeyDown(KeyCode.R)){
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			}

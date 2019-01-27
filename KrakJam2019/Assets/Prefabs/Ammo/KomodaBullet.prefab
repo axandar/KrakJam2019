@@ -300,7 +300,7 @@ MonoBehaviour:
   rocket02: {fileID: 1628722902339167978, guid: 82c8191e0014be344bdf282219ad13cb,
     type: 3}
   rocket03: {fileID: 9150772794876812902}
-  rocketVelocity: 700
+  rocketVelocity: 1400
   rocketTimer: 5
   delayBetweenShoots: 0
   shootingSoundsManager: {fileID: 0}
