@@ -17,7 +17,10 @@ namespace Code.Boss{
 
 		private void OnEnable(){
 			CurrentHealth = health;
-			musicManager.StopAmbientMusic();
+//			bossRespawner.InvokeRespawnBoss();
+			if (musicManager != null){
+				musicManager.StopAmbientMusic();
+			}
 		}
 
 		public float CurrentHealth{
