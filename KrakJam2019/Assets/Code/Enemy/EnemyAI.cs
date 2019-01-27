@@ -6,9 +6,10 @@ namespace Code.Enemy{
 	// ReSharper disable once InconsistentNaming
 	public class EnemyAI : MonoBehaviour{
 		public Transform target;
+		public float speed = 5;
+		
 		[SerializeField] private EnemyMovement enemyMovement;
 		[SerializeField] private Vector3 nextStep;
-		[SerializeField] private float speed = 5;
 		[SerializeField] private int scoreValue;
 		[SerializeField] private GameObject explosion;
 
