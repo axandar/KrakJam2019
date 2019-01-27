@@ -7,7 +7,7 @@ public class AmbientMusicManager : MonoBehaviour{
     
     private AudioSource _ambientMusic;
 
-    private void Start(){
+    private void Awake(){
         _ambientMusic = GetComponent<AudioSource>();
     }
 

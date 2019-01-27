@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
-    public Transform target;
     [SerializeField] private float _speed;
     [SerializeField] private Camera gameCamera;
     [SerializeField] private Transform _playerTransform;
@@ -15,10 +14,12 @@ public class BossAI : MonoBehaviour
     [SerializeField] private Transform _strifeRightSide;
     [SerializeField] private Transform _strifeLeftSide;
     [SerializeField] private List<GameObject> _bullets;
+    [SerializeField] private float reload;
     
     private Vector3 position;
     private bool maxPosition = true;
     private bool goingRight = true;
+    private bool firing = true;
     
     private BossInfo _bossInfo;
     
@@ -29,7 +30,7 @@ public class BossAI : MonoBehaviour
         position = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (CalculateDistanceToPlayer() < _maxDistanceToPlayer &&
             CalculateDistanceToPlayer() > _minDistanceToPlayer){
@@ -56,29 +57,57 @@ public class BossAI : MonoBehaviour
     }
 
     private void StrifeNearPlayer(){
-        if (CalculateBossPosition()){
-            if (goingRight){
-                transform.position += transform.TransformDirection (_strifeRightSide.position);
-            }else transform.position += transform.TransformDirection (_strifeLeftSide.position);
+        var step = _speed * Time.deltaTime;
+        if (goingRight){
+            if (IsNearRightWall()){
+                goingRight = false;
+            }else{
+                Debug.Log("Going Right Direction");
+                transform.position = Vector3.MoveTowards(transform.position, _strifeRightSide.position, step);
+            }
+        }else if (IsNearLeftWall()){
+            goingRight = true;
+        }else
+        {transform.position = Vector3.MoveTowards(transform.position, _strifeLeftSide.position, step);}
+        
+       
+        if (firing){
+          StartCoroutine(ShootThePlayer());
+            
         }
-        ShootThePlayer();
     }
-
-    private bool CalculateBossPosition(){
-        if (Vector3.Distance(transform.position,_strifeRightSide.position) > 1.0f){
-            return !maxPosition;
+    private bool IsNearRightWall(){
+        if (Vector3.Distance(transform.position,_strifeRightSide.position) < 10.0f){
+            return true;
         }
-        goingRight = !goingRight;
-        return maxPosition;
+            return false;
+    }
+    private bool IsNearLeftWall(){
+        if (Vector3.Distance(transform.position,_strifeLeftSide.position) < 10.0f){
+            return true;
+        }
+            return false;
     }
 
-    private void ShootThePlayer(){
-        Instantiate(_bullets[Random.Range(0, _bullets.Count)]);
-    }
 
+   
     private float CalculateDistanceToPlayer(){
-        var heading = target.position - _playerTransform.position;
+        var heading = transform.position - _playerTransform.position;
         var distance = heading.magnitude;
+//        Debug.Log(transform.position);
+//        Debug.Log(_playerTransform.position);
+//        Debug.Log(heading);
+//        Debug.Log(distance);
         return distance;
+    }
+
+
+
+    IEnumerator ShootThePlayer()
+    {
+        firing = false;
+        yield return new WaitForSeconds(reload);
+        Instantiate(_bullets[Random.Range(0, _bullets.Count)],transform.position,Quaternion.identity);
+        firing = true;
     }
 }
