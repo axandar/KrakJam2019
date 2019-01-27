@@ -341,6 +341,19 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 3761752866256591798}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535257912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535257907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: aec58cebd8fbd0645875b63c7e28a62d, type: 2}
 --- !u!4 &2021946531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6060857754450281588, guid: cdcaf005d2f217c41943d99e0e14c1ad,
@@ -470,15 +483,15 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1297352394}
-    - target: {fileID: 6864719739922785688, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.95
-      objectReference: {fileID: 0}
     - target: {fileID: 6060857754450281589, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: orthographic size
       value: 6.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864719739922785688, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.95
       objectReference: {fileID: 0}
     - target: {fileID: 6060857754816230937, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
@@ -662,15 +675,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128326850}
     m_Modifications:
-    - target: {fileID: 4124651661130411518, guid: eb82c0b69a810f24f97d346b23a57380,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4124651661130411512, guid: eb82c0b69a810f24f97d346b23a57380,
         type: 3}
       propertyPath: m_Name
       value: Damaged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124651661130411518, guid: eb82c0b69a810f24f97d346b23a57380,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4124651661130411513, guid: eb82c0b69a810f24f97d346b23a57380,
         type: 3}
@@ -865,15 +878,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128326850}
     m_Modifications:
-    - target: {fileID: 8381414014552947511, guid: 2a5b43b0dd0e14c42a4286e2ff096306,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8381414014552947508, guid: 2a5b43b0dd0e14c42a4286e2ff096306,
         type: 3}
       propertyPath: m_Name
       value: Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381414014552947511, guid: 2a5b43b0dd0e14c42a4286e2ff096306,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8381414014552947510, guid: 2a5b43b0dd0e14c42a4286e2ff096306,
         type: 3}
