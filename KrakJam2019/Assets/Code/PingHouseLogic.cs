@@ -6,6 +6,13 @@ namespace Code{
 		
 		[SerializeField] private LayerMask layerMask;
 		private EnemyAI _enemyAi;
+		[SerializeField] private GameObject isAlpaka;
+		private SpriteRenderer renderererererererer;
+
+		void Start()
+		{
+			renderererererererer = GetComponentInParent<SpriteRenderer>();
+		}
 
 		private void DestroyEnemyAround()
 		{
@@ -15,15 +22,19 @@ namespace Code{
 					enemy.GetComponent<EnemyAI>().DamageMeBoi(10);
 					Debug.Log("DIEEVERyONE");
 					Destroy(enemy.gameObject);
-					Destroy(gameObject);
-				}
+					}
 			}
 		}
 
 		private void OnCollisionEnter2D(Collision2D other){
-			if(other.gameObject.CompareTag("Player")){
+			if(other.gameObject.CompareTag("Player")) {
+				renderererererererer.enabled = false;
 				DestroyEnemyAround();
+				Destroy(gameObject);
+				Destroy(isAlpaka);
+
 			}
 		}
+
 	}
 }
