@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5094142423326782845}
   - component: {fileID: 2308228443661634109}
   - component: {fileID: 1043516049800081974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SunEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
