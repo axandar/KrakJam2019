@@ -519,6 +519,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20c3d0b67fd1584e840226960c8c27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1297352396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297352394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65804b3748864b249b5cbfcb619dcaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pinkHouse: {fileID: 1445622481443780520, guid: 6260622ae495be24381c428002b3b73f,
+    type: 3}
+  timeToSpawn: 30
 --- !u!225 &1364822076 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 4124651661130411518, guid: eb82c0b69a810f24f97d346b23a57380,
@@ -766,11 +781,21 @@ PrefabInstance:
       propertyPath: enemyFlash
       value: 
       objectReference: {fileID: 1364822076}
+    - target: {fileID: 3761752867492340216, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: rocketVelocity
+      value: 1300
+      objectReference: {fileID: 0}
     - target: {fileID: 6864719739922785695, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 1297352395}
+    - target: {fileID: 6864719739922785695, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1252844511}
     - target: {fileID: 6060857756079008531, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: m_LocalPosition.x

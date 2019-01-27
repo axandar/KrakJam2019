@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Programowanie\UnityProjects\KrakJam2019\KrakJam2019" t="IncludeRecursive">
+    <e p="C:\Users\Daniel\.Rider2018.2\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Daniel\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Daniel\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_KrakJam2019.-687097994.00" t="ExcludeRecursive" />
+    <e p="D:\Users\Daniel\Documents\KrakJam2019\KrakJam2019" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Code" t="Include">
+          <e p="AmbientMusicManager.cs" t="Include" />
+          <e p="AnimationAutoDestroy.cs" t="Include" />
           <e p="Boss" t="Include">
             <e p="BossAI.cs" t="Include" />
             <e p="BossInfo.cs" t="Include" />
             <e p="BossRespawner.cs" t="Include" />
           </e>
-          <e p="BuletLogic.cs" t="Include" />
-          <e p="cameraController.cs" t="Include" />
+          <e p="BulletLogic.cs" t="Include" />
+          <e p="CameraController.cs" t="Include" />
           <e p="CameraShake.cs" t="Include" />
           <e p="Enemy" t="Include">
             <e p="EnemyAI.cs" t="Include" />
@@ -23,15 +28,20 @@
             <e p="FromPointToPoint.cs" t="Include" />
             <e p="TowardObject.cs" t="Include" />
           </e>
+          <e p="Events.cs" t="Include" />
+          <e p="ExplosionSoundManager.cs" t="Include" />
           <e p="FollowUV.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
           <e p="KonamiCode.cs" t="Include" />
           <e p="MainMenuController.cs" t="Include" />
           <e p="MenuBackgroundAnimation.cs" t="Include" />
+          <e p="PingHouseLogic.cs" t="Include" />
+          <e p="PinkHouseSpawn.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="RespawnArea.cs" t="Include" />
           <e p="RocketShooter.cs" t="Include" />
           <e p="ScreenFlash.cs" t="Include" />
+          <e p="ShootingSoundsManager.cs" t="Include" />
           <e p="SpaceshipController.cs" t="Include" />
         </e>
         <e p="Shared" t="Include">
@@ -47,7 +57,5 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="C:\Users\Axandar\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Axandar\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_KrakJam2019.-191359158.00" t="ExcludeRecursive" />
   </component>
 </project>
