@@ -151,6 +151,8 @@ MonoBehaviour:
   bullets:
   - {fileID: 2636607923658660481, guid: 7985d57675b02e047872bc17836e7b47, type: 3}
   - {fileID: 5094142423326782844, guid: 252a9cba2cf0bf74594336907ac0dedc, type: 3}
+  - {fileID: 8178288965933125102, guid: 9454afdb28dd86b478db436779f9e394, type: 3}
+  - {fileID: 3533652120135626509, guid: 04ed9b5ca7220dd4da69e2e7893bf3f6, type: 3}
   reload: 1
   dmgPerBullet: 5
   bulletSpeed: 200
