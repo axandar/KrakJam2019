@@ -55,10 +55,14 @@ namespace Code{
 
 			switch(bulletId){
 				case 1:
+
+					boomBoomValue = 10;
 					return rocket01;
 				case 2:
+					boomBoomValue = 14;
 					return rocket02;
 				case 3:
+					boomBoomValue = 12;
 					return rocket03;
 				default:
 					return rocket01;
