@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1520920503325771299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -121,14 +121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a1bd8f76c0d7b49bf21b6a7898f781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 25
-  _scoreValue: 500
-  _bossRespawner: {fileID: 0}
-  addScore:
+  musicManager: {fileID: 0}
+  bossDeathEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: BossInfo+AddScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: Code.Boss.BossInfo+BossDeathEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  health: 80
+  scoreValue: 300
 --- !u!114 &4645565048358146232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +141,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570a6e16665835e4abcd8f937a4f466d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
+  playerTransform: {fileID: 0}
+  strifeRightSide: {fileID: 0}
+  strifeLeftSide: {fileID: 0}
+  speed: 15
+  minDistanceToPlayer: 2
+  maxDistanceToPlayer: 5
+  bullets:
+  - {fileID: 2636607923658660481, guid: 7985d57675b02e047872bc17836e7b47, type: 3}
+  - {fileID: 5094142423326782844, guid: 252a9cba2cf0bf74594336907ac0dedc, type: 3}
+  reload: 1
+  dmgPerBullet: 5
+  bulletSpeed: 200
+  inCameraSpawnVector: {x: 0.5, y: 0.9, z: 1}
 --- !u!82 &4262125171262319513
 AudioSource:
   m_ObjectHideFlags: 0
