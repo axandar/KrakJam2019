@@ -165,10 +165,12 @@ MonoBehaviour:
   rocket02: {fileID: 1628722902339167978}
   rocket03: {fileID: 9150772794876812902, guid: 89865d8c0465b644194361358e717bbe,
     type: 3}
-  rocketVelocity: 700
+  rocketVelocity: 1400
   rocketTimer: 5
   delayBetweenShoots: 0
   shootingSoundsManager: {fileID: 0}
+  enemyFlash: {fileID: 8381414014552947511, guid: 2a5b43b0dd0e14c42a4286e2ff096306,
+    type: 3}
   boomBoomValue: 1
   isShootingDisabled: 1
 --- !u!1 &2714149889155497540
