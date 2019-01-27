@@ -11,7 +11,7 @@ namespace Code{
 		[SerializeField] private float rocketVelocity;
 		[SerializeField] private float rocketTimer;
 		[SerializeField] private float delayBetweenShoots;
-		[SerializeField] private ShootingSoundsManager _shootingSoundsManager;
+		[SerializeField] private ShootingSoundsManager shootingSoundsManager;
 
 		public int boomBoomValue;
 		public bool isShootingDisabled;
@@ -20,11 +20,10 @@ namespace Code{
 
 		void Update(){
 			if(!isShootingDisabled && Input.GetMouseButton(0) && _timeFromLastShoot >= delayBetweenShoots){
-				Debug.Log("entering shoot manager");
-				if (_shootingSoundsManager != null){
-					_shootingSoundsManager.PlayShootingSound();
+				if (shootingSoundsManager != null){
+					shootingSoundsManager.PlayShootingSound();
 				}
-				Debug.Log("exciting shoot manager");
+				
 				ShootRocket();
 				_timeFromLastShoot = 0;
 			}else{

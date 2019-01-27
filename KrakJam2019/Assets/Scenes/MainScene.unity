@@ -557,6 +557,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1619042693564117928, guid: 47a3db20824e027419fb7b0173f799a0,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.374
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47a3db20824e027419fb7b0173f799a0, type: 3}
 --- !u!1001 &3761752866256591798
@@ -571,37 +576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship
       objectReference: {fileID: 0}
-    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-        type: 3}
-      propertyPath: _healthPoints
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-        type: 3}
-      propertyPath: gameUi
-      value: 
-      objectReference: {fileID: 98359380}
-    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-        type: 3}
-      propertyPath: gameOverUi
-      value: 
-      objectReference: {fileID: 510282405}
-    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-        type: 3}
-      propertyPath: criticalHealthUi
-      value: 
-      objectReference: {fileID: 732821651}
-    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-        type: 3}
-      propertyPath: bonusPrefab
-      value: 
-      objectReference: {fileID: 2607964847422472911, guid: 01ee1f043898fa04981980c02da8022b,
-        type: 3}
-    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1297352394}
     - target: {fileID: 6060857754816230937, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -657,6 +631,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: _healthPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: gameUi
+      value: 
+      objectReference: {fileID: 98359380}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: gameOverUi
+      value: 
+      objectReference: {fileID: 510282405}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: criticalHealthUi
+      value: 
+      objectReference: {fileID: 732821651}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: bonusPrefab
+      value: 
+      objectReference: {fileID: 2607964847422472911, guid: 01ee1f043898fa04981980c02da8022b,
+        type: 3}
+    - target: {fileID: 6060857754816230919, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1297352394}
     - target: {fileID: 6864719739922785695, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: gameController
@@ -670,6 +675,11 @@ PrefabInstance:
     - target: {fileID: 3761752867492340216, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: _shootingSoundsManager
+      value: 
+      objectReference: {fileID: 3879738822535583135}
+    - target: {fileID: 3761752867492340216, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: shootingSoundsManager
       value: 
       objectReference: {fileID: 3879738822535583135}
     m_RemovedComponents: []
