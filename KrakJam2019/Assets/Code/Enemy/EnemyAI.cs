@@ -11,6 +11,7 @@ namespace Code.Enemy{
 		[SerializeField] private float speed = 5;
 		[SerializeField] private int scoreValue;
 		[SerializeField] private GameObject explosion;
+
 		public AddScoreEvent addScore;
 		public float health = 5;
 		private float _currentHealth;
@@ -80,6 +81,7 @@ namespace Code.Enemy{
 
 		private void OnDisable(){
 			Instantiate(explosion,gameObject.transform.position,Quaternion.identity);
+			
 		}
 
 		[Serializable]

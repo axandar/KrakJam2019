@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 190630510988369245}
   m_Layer: 0
   m_Name: FreezerBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
-  DMGRange: 1
+  dmgRange: 0
 --- !u!61 &2214503672316479756
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,10 +165,10 @@ MonoBehaviour:
   rocket02: {fileID: 1628722902339167978}
   rocket03: {fileID: 9150772794876812902, guid: 89865d8c0465b644194361358e717bbe,
     type: 3}
-  rocket: {fileID: 1394349801221292011, guid: da7914fa74005ad45880a82e134cb2cc, type: 3}
   rocketVelocity: 700
   rocketTimer: 5
-  shootingDelay: 0.1
+  delayBetweenShoots: 0
+  shootingSoundsManager: {fileID: 0}
   boomBoomValue: 1
   isShootingDisabled: 1
 --- !u!1 &2714149889155497540

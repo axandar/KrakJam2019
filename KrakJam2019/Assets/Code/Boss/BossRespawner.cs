@@ -12,8 +12,8 @@ namespace Code.Boss{
 
         private void RespawnBoss()
         {
-            boss.transform.position = bossRespawnTransform.position;
             boss.SetActive(true);
+            boss.transform.position = bossRespawnTransform.position;
         }
 
 
