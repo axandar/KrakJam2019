@@ -131,10 +131,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7031603746388068645, guid: 9ae46584aa6b35346844212648739780, type: 3}
+  speed: 10
   enemyMovement: {fileID: 2827563295208027875, guid: d0f64bc06fea2a64e87933725ab1cee5,
     type: 3}
   nextStep: {x: 0, y: 0, z: 0}
-  speed: 5
   scoreValue: 10
   explosion: {fileID: 3480823955964553596, guid: 026f2ace836686b49b95b22381a8bd3f,
     type: 3}
