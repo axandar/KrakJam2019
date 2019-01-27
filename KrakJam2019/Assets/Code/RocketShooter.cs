@@ -20,11 +20,9 @@ namespace Code{
 
 		void Update(){
 			if(!isShootingDisabled && Input.GetMouseButton(0) && _timeFromLastShoot >= delayBetweenShoots){
-				Debug.Log("entering shoot manager");
 				if (_shootingSoundsManager != null){
 					_shootingSoundsManager.PlayShootingSound();
 				}
-				Debug.Log("exciting shoot manager");
 				ShootRocket();
 				_timeFromLastShoot = 0;
 			}else{
