@@ -2,7 +2,13 @@
 
 public class AnimationAutoDestroy : MonoBehaviour
 {
-   public void DestroyThisObject(){
-      Destroy(gameObject);
+   private SpriteRenderer _spriteRenderer;
+
+   private void Start(){
+      _spriteRenderer = GetComponent<SpriteRenderer>();
+   }
+
+   public void DisableThisObject(){
+      _spriteRenderer.enabled = false;
    }
 }

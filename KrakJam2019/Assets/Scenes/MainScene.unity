@@ -686,6 +686,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3761752867492340219, guid: cdcaf005d2f217c41943d99e0e14c1ad,
+        type: 3}
+      propertyPath: jakisTamTransform
+      value: 
+      objectReference: {fileID: 2021946531}
     - target: {fileID: 3761752867492340216, guid: cdcaf005d2f217c41943d99e0e14c1ad,
         type: 3}
       propertyPath: _shootingSoundsManager
