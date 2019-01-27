@@ -33,7 +33,7 @@ namespace Code{
 			get => healthPoints;
 			set{
 				healthPoints = value;
-				Events.BroadcastStartShake(1 ,0.8f);
+				Debug.Log("PlayerGetHit");
 			}
 		}
 

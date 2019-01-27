@@ -62,7 +62,7 @@ namespace Code.Enemy{
 		}
 
 		public void DamageMeBoi(int boomBoomValue){
-			Events.BroadcastStartShake(0.4f,0.02f);
+			Events.BroadcastStartShake(0.4f);
 			_currentHealth -= boomBoomValue;
 		}
 
