@@ -12,12 +12,20 @@ namespace Code{
 		[SerializeField] private float rocketTimer;
 		[SerializeField] private float delayBetweenShoots;
 		[SerializeField] private ShootingSoundsManager shootingSoundsManager;
+		
+		[SerializeField] private CanvasGroup enemyFlash;
 
 		public int boomBoomValue;
 		public bool isShootingDisabled;
 
+		private bool _flash;
+
 		private float _timeFromLastShoot;
 
+		void Start() {
+			enemyFlash.alpha = 0;
+		}
+		
 		void Update(){
 			if(!isShootingDisabled && Input.GetMouseButton(0) && _timeFromLastShoot >= delayBetweenShoots){
 				if (shootingSoundsManager != null){
@@ -47,7 +55,27 @@ namespace Code{
 		private void OnCollisionEnter2D(Collision2D other){
 			if(other.gameObject.CompareTag("Enemy")){
 				other.gameObject.GetComponent<EnemyAI>().DamageMeBoi(boomBoomValue);
+				DoHit();
+				if (_flash) {
+					enemyFlash.alpha = enemyFlash.alpha - Time.deltaTime;
+					if (enemyFlash.alpha <= 0) {
+						enemyFlash.alpha = 0;
+						_flash = false;
+					}
+				}
+				
 			}
+		}
+
+		private void DoHit() {
+			_flash = true;
+			enemyFlash.alpha = .5f;
+			Invoke(nameof(StopFlash), 0.05f);
+		}
+
+		private void StopFlash() {
+			_flash = false;
+			enemyFlash.alpha = 0;
 		}
 
 		private GameObject GetRocket(){
@@ -55,10 +83,14 @@ namespace Code{
 
 			switch(bulletId){
 				case 1:
+
+					boomBoomValue = 10;
 					return rocket01;
 				case 2:
+					boomBoomValue = 14;
 					return rocket02;
 				case 3:
+					boomBoomValue = 12;
 					return rocket03;
 				default:
 					return rocket01;
