@@ -15,17 +15,23 @@ public class BossAI : MonoBehaviour
     [SerializeField] private Transform _strifeLeftSide;
     [SerializeField] private List<GameObject> _bullets;
     [SerializeField] private float reload;
+    [SerializeField] private int dmgPerBullet;
     
     private Vector3 position;
     private bool maxPosition = true;
     private bool goingRight = true;
-    private bool firing = true;
+    private bool firing;
     
     private BossInfo _bossInfo;
-    
 
+
+    private void OnEnable()
+    {
+        firing = true;
+    }
 
     private void Start(){
+        
         _bossInfo = GetComponent<BossInfo>();
         position = transform.position;
     }
@@ -45,8 +51,8 @@ public class BossAI : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Bullet")){
-            DamageRecieved(other.gameObject.GetComponent<RocketShooter>().boomBoomValue);
-            Destroy(gameObject);
+            DamageRecieved(dmgPerBullet);
+            Destroy(other.gameObject);
         }
     }
 
