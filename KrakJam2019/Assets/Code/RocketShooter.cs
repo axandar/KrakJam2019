@@ -11,16 +11,20 @@ namespace Code{
 		[SerializeField] private float rocketVelocity;
 		[SerializeField] private float rocketTimer;
 		[SerializeField] private float delayBetweenShoots;
-		[SerializeField] private ShootingSoundsManager shootingSoundsManager;
+		[SerializeField] private ShootingSoundsManager _shootingSoundsManager;
 
 		public int boomBoomValue;
 		public bool isShootingDisabled;
 
 		private float _timeFromLastShoot;
 
-		private void Update(){
+		void Update(){
 			if(!isShootingDisabled && Input.GetMouseButton(0) && _timeFromLastShoot >= delayBetweenShoots){
-				shootingSoundsManager.PlayShootingSound();
+				Debug.Log("entering shoot manager");
+				if (_shootingSoundsManager != null){
+					_shootingSoundsManager.PlayShootingSound();
+				}
+				Debug.Log("exciting shoot manager");
 				ShootRocket();
 				_timeFromLastShoot = 0;
 			}else{
