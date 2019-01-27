@@ -11,6 +11,7 @@ namespace Code.Enemy{
 		[SerializeField] private float speed = 5;
 		[SerializeField] private int scoreValue;
 		[SerializeField] private GameObject explosion;
+		[SerializeField] private int DMG = 8;
 
 		public AddScoreEvent addScore;
 		public float health = 5;
@@ -74,7 +75,7 @@ namespace Code.Enemy{
 		private void OnCollisionEnter2D(Collision2D other){
 			if(other.gameObject.CompareTag("Player")){
 				var controller = other.gameObject.GetComponentInParent<GameController>();
-				controller.HealthPoints -= 10;
+				controller.HealthPoints -= DMG;
 				Destroy(gameObject);
 			}
 		}
